@@ -1,5 +1,9 @@
 # LessWrong Portable
 
+Download the current version of [The Codex](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/codex.epub)
+
+## About this
+
 This is the latest in a long history of independent, disorganized projects to scrape collections of posts from LessWrong into ebooks. A few selected examples of others:
 
 * [jb55's lesswrong-print](https://github.com/jb55/lesswrong-print)
@@ -16,7 +20,7 @@ As separate rationale, [Scott Alexander's Codex](https://www.lesserwrong.com/cod
 
 ## Where are the Ebook files?
 
-I haven't finished writing the script yet, so I don't have any live EBooks yet. Watch this space.
+In the `output/` directory. Yes, in the `master` branch.
 
 ## I want to make my own version! What should I do?
 
@@ -24,12 +28,16 @@ First, [Clone this Repository](https://github.com/AABoyles/LessWrong-Portable.gi
 
 ```bash
 git clone https://github.com/AABoyles/LessWrong-Portable.git
+cd LessWrong-Portable/
 ```
 
-Next, set up your environment.
+Now, do you use [Python](#python) or [Javascript](#no-javascript)?
+
+### Python!
+
+OK, set up your environment:
 
 ```bash
-cd LessWrong-Portable/
 pip3 install -r requirements.txt
 ```
 
@@ -41,9 +49,31 @@ Finally, run `build.py`.
 python3 build.py
 ```
 
-That will download all of the content of [the Codex]() into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/codex.epub`).
+That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/codex.epub`). Warning: It runs pretty slowly.
+
+### No, Javascript!
+
+OK, set up your environment:
+
+```bash
+npm install
+```
+
+Finally, run `build.js`.
+
+```bash
+nodejs build.js
+```
+
+That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/codex.epub`). LW2.0 is pretty slow, but otherwise the script runs pretty fast :)
+
+### OK, back to platform-agnostic text
 
 I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new).
+
+## Why is the output mostly blank pages?
+
+[The Links](https://github.com/AABoyles/LessWrong-Portable/blob/master/urls/codex) for [the Codex](https://www.lesserwrong.com/codex) aren't all up and running yet. I [mentioned this](https://www.lesserwrong.com/posts/vtZsEerABCjhtgizX/beta-first-impressions/z5CwCreiFve2K3H8Z) in [the appropriate venue](https://www.lesserwrong.com/posts/vtZsEerABCjhtgizX/beta-first-impressions).
 
 ## How do you make a version for Kindle?
 
@@ -52,15 +82,31 @@ Use [Calibre](https://calibre-ebook.com/) or [this Weird Script from Amazon](htt
 
 ## How do you make a PDF/Text/Markdown/[Whatever] Version?
 
-I haven't gotten there yet. Feel free to [fork this repo](#fork-destination-box) and figure it out yourself.
+I haven't gotten there yet. Feel free to [fork this repo](https://help.github.com/articles/fork-a-repo/) and figure it out yourself.
 
 ## How do you make a Word Version?
 
 Go away.
 
+## Why two separate platforms?
+
+I [started this project in Python](https://github.com/AABoyles/LessWrong-Portable/commit/34ed9329ad95f6ae42b21b73808a4c64b30b6648), but the [EPUB library](https://github.com/aerkalov/ebooklib) was irritating me and I couldn't find a good ([Python](https://github.com/kcartlidge/nodepub)) alternative.
+
+## Which version created the output in the Repo?
+
+Javascript.
+
+## Why is the Javascript version synchronous?
+
+Because this doesn't need to be done fast, but it does need to be done in a precise sequence.
+
 ## What's the roadmap?
 
-1. Get it working.
-2. Read the Codex on my Kindle, 'cuz that's the real reason I started this thing.
+1. Wait patiently for the LW2.0 devs to fix the Codex.
+2. Re-run the script and push the output upstream.
+3. Read the Codex on my Kindle, 'cuz that's the real reason I started this thing.
+4. Add infrastructure to make the content switchable (e.g. pass an argument to build the Codex, a different one to build HPMOR, a third for R:A-Z, etc.)
+...
+3^^^3. Maybe organize some new sequences in a way that I find useful and add them.
 
-If you want anything else, [let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new) and I'll tackle it when I've got some spare time.
+If you want anything else, [let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new) and I'll tackle it when I've got some spare time. HAHAHAHA.
