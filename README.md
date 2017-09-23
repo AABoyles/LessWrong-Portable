@@ -1,6 +1,6 @@
 # LessWrong Portable
 
-Download the current version of [The Codex](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/codex.epub)
+Download the current version of The Codex [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/codex.epub)] [[MOBI]()]
 
 ## About this
 
@@ -75,7 +75,7 @@ I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWro
 
 [The Links](https://github.com/AABoyles/LessWrong-Portable/blob/master/urls/codex) for [the Codex](https://www.lesserwrong.com/codex) aren't all up and running yet. I [mentioned this](https://www.lesserwrong.com/posts/vtZsEerABCjhtgizX/beta-first-impressions/z5CwCreiFve2K3H8Z) in [the appropriate venue](https://www.lesserwrong.com/posts/vtZsEerABCjhtgizX/beta-first-impressions).
 
-## How do you make a version for Kindle?
+## How did you make the MOBI version?
 
 Turns out that programatically generating [Kindle Formats](https://kdp.amazon.com/en_US/help/topic/A2GF0UFHIYG9VQ) (e.g. [AZW](https://calibre-ebook.com/), [MOBI](https://en.wikipedia.org/wiki/Mobipocket)) is weirdly difficult.
 Use [Calibre](https://calibre-ebook.com/) or [this Weird Script from Amazon](https://www.amazon.com/gp/feature.html?docId=1000765211).
@@ -96,6 +96,10 @@ I [started this project in Python](https://github.com/AABoyles/LessWrong-Portabl
 
 Javascript.
 
+## Why does the Javascript verion call curl, instead of using an http library?
+
+I went through four different libraries to try to make synchronous http requests, and they all did this super annoying thing where they would return a page that hadn't rendered the text content yet. Weirdly, when I made (what I thought was) the same request in curl, it gave me the content I needed. So, instead of figuring out the right way to do it, I just did the thing that worked.
+
 ## Why is the Javascript version synchronous?
 
 Because this doesn't need to be done fast, but it does need to be done in a precise sequence.
@@ -106,7 +110,6 @@ Because this doesn't need to be done fast, but it does need to be done in a prec
 2. Re-run the script and push the output upstream.
 3. Read the Codex on my Kindle, 'cuz that's the real reason I started this thing.
 4. Add infrastructure to make the content switchable (e.g. pass an argument to build the Codex, a different one to build HPMOR, a third for R:A-Z, etc.)
-...
-3^^^3. Maybe organize some new sequences in a way that I find useful and add them.
+5. Maybe organize some new sequences in a way that I find useful and add them.
 
 If you want anything else, [let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new) and I'll tackle it when I've got some spare time. HAHAHAHA.

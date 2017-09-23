@@ -2,9 +2,8 @@
 
 const cheerio = require('cheerio');
 const makepub = require('nodepub');
-const request = require('sync-request');
 const jetpack = require('fs-jetpack');
-
+const { execSync } = require('child_process');
 const baseurl = 'https://www.lesserwrong.com';
 
 const metadata = {
@@ -56,8 +55,8 @@ jetpack.read('urls/codex').trim().split('\n').forEach(path => {
     var html = jetpack.read(cache_path);
   } else {
     console.log('Scraping', baseurl + path);
-    var r = request('GET', baseurl + path.trim());
-    var html = r.getBody();
+    var r = execSync('curl ' + baseurl + path);
+    var html = r.toString();
     jetpack.write(cache_path, html);
   }
   addChapterToBook(html, path);
