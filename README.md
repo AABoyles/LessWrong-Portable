@@ -1,6 +1,6 @@
 # LessWrong Portable
 
-Download the current version of The Codex [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/codex.epub)] [[MOBI]()]
+Download the current version of The Codex [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/codex.epub)] [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/codex.mobi)]
 
 ## About this
 
@@ -20,7 +20,7 @@ As separate rationale, [Scott Alexander's Codex](https://www.lesserwrong.com/cod
 
 ## Where are the Ebook files?
 
-In the `output/` directory. Yes, in the `master` branch.
+In the [output directory](https://github.com/AABoyles/LessWrong-Portable/tree/master/output). 
 
 ## I want to make my own version! What should I do?
 
@@ -71,10 +71,6 @@ That will download all of the content of [the Codex](https://www.lesserwrong.com
 
 I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new).
 
-## Why is the output mostly blank pages?
-
-[The Links](https://github.com/AABoyles/LessWrong-Portable/blob/master/urls/codex) for [the Codex](https://www.lesserwrong.com/codex) aren't all up and running yet. I [mentioned this](https://www.lesserwrong.com/posts/vtZsEerABCjhtgizX/beta-first-impressions/z5CwCreiFve2K3H8Z) in [the appropriate venue](https://www.lesserwrong.com/posts/vtZsEerABCjhtgizX/beta-first-impressions).
-
 ## How did you make the MOBI version?
 
 Turns out that programatically generating [Kindle Formats](https://kdp.amazon.com/en_US/help/topic/A2GF0UFHIYG9VQ) (e.g. [AZW](https://calibre-ebook.com/), [MOBI](https://en.wikipedia.org/wiki/Mobipocket)) is weirdly difficult.
@@ -106,10 +102,8 @@ Because this doesn't need to be done fast, but it does need to be done in a prec
 
 ## What's the roadmap?
 
-1. Wait patiently for the LW2.0 devs to fix the Codex.
-2. Re-run the script and push the output upstream.
-3. Read the Codex on my Kindle, 'cuz that's the real reason I started this thing.
-4. Add infrastructure to make the content switchable (e.g. pass an argument to build the Codex, a different one to build HPMOR, a third for R:A-Z, etc.)
-5. Maybe organize some new sequences in a way that I find useful and add them.
+1. Read the Codex on my Kindle, 'cuz that's the real reason I started this thing.
+2. Add infrastructure to make the content switchable (e.g. pass an argument to build the Codex, a different one to build HPMOR, a third for R:A-Z, etc.)
+3. Maybe organize some new sequences in a way that I find useful and add them.
 
 If you want anything else, [let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new) and I'll tackle it when I've got some spare time. HAHAHAHA.
