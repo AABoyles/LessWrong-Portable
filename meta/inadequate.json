@@ -1,0 +1,27 @@
+{
+	"img": "images/inadequate.jpg",
+	"shorttitle": "InadequateEquilibria",
+	"metadata": {
+		"id": "InadequateEquilibria",
+		"title": "Inadequate Equilibria: Where and How Civilizations get Stuck",
+		"series": "LessWrong",
+		"sequence": 1,
+		"author": "Eliezer Yudkowsky",
+		"fileAs": "Yudkowsky, Eliezer",
+		"genre": "Non-Fiction",
+		"tags": "Rationality",
+		"copyright": "Eliezer Yudkowsky, 2017",
+		"publisher": "Machine Intelligence Research Institute",
+		"published": "2017-11-16",
+		"language": "en",
+		"description": "Inadequate Equilibria",
+		"contents": "Chapters",
+		"source": "https://www.lesserwrong.com",
+		"images": []
+	},
+	"urls": [
+		"/posts/zsG9yKcriht2doRhM/inadequacy-and-modesty",
+		"/posts/yPLr2tnXbiFXkMWvk/an-equilibrium-of-no-free-energy",
+		"/posts/x5ASTMPKPowLKpLpZ/moloch-s-toolbox-1-2"
+	]
+}
