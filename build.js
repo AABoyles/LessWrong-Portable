@@ -6,26 +6,11 @@ const jetpack = require('fs-jetpack');
 const { execSync } = require('child_process');
 const baseurl = 'https://www.lesserwrong.com';
 
-const metadata = {
-	id: Date.now(),
-	title: 'The Codex',
-	series: 'LessWrong',
-	sequence: 1,
-	author: 'Scott Alexander',
-	fileAs: 'Alexander, Scott',
-	genre: 'Non-Fiction',
-	tags: 'Rationality',
-	copyright: 'Scott Alexander, 2007-2017',
-	publisher: 'LessWrong',
-	published: new Date().toISOString().substr(0,10),
-	language: 'en',
-	description: 'The Codex',
-	contents: 'Chapters',
-	source: 'https://www.lesserwrong.com',
-	images: []
-};
+var version = process.argv.length > 2 ? process.argv[2] : 'default';
 
-var epub = makepub.document(metadata, 'images/codexsmall.jpg');
+const config = JSON.parse(jetpack.read('meta/' + version + '.json'));
+
+var epub = makepub.document(config.metadata, config.img);
 
 epub.addCSS(jetpack.read('style/base.css'));
 
@@ -49,7 +34,7 @@ function addChapterToBook(html, path){
   epub.addSection(title, newDoc('body').html());
 }
 
-jetpack.read('urls/codex').trim().split('\n').forEach(path => {
+config.urls.forEach(path => {
   cache_path = 'cache/' + path.trim().split('/').pop() + '.html';
   if(jetpack.exists(cache_path)){
     var html = jetpack.read(cache_path);
@@ -62,4 +47,4 @@ jetpack.read('urls/codex').trim().split('\n').forEach(path => {
   addChapterToBook(html, path);
 });
 
-epub.writeEPUB(()=>{}, 'output', 'codex', ()=>{});
+epub.writeEPUB(()=>{}, 'output', config.shorttitle, ()=>{});

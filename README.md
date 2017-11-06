@@ -20,7 +20,7 @@ As separate rationale, [Scott Alexander's Codex](https://www.lesserwrong.com/cod
 
 ## Where are the Ebook files?
 
-In the [output directory](https://github.com/AABoyles/LessWrong-Portable/tree/master/output). 
+In the [output directory](https://github.com/AABoyles/LessWrong-Portable/tree/master/output).
 
 ## I want to make my own version! What should I do?
 
@@ -99,6 +99,10 @@ I went through four different libraries to try to make synchronous http requests
 ## Why is the Javascript version synchronous?
 
 Because this doesn't need to be done fast, but it does need to be done in a precise sequence.
+
+## I ran the build myself, but it missed a bunch of essays and just put blank pages where they should've been! What gives?
+
+If the server [barfs](http://catb.org/jargon/html/B/barf.html) for some reason, the script will continue. After all, why waste bandwidth and effort? Re-run it and it will only try to download the files it didn't get the first time. There may be a couple that aren't downloading for structural, rather than probabilistic reasons. To fill these in for the [canonical ebooks](https://github.com/AABoyles/LessWrong-Portable/tree/master/output), I just manually saved copies of those pages in the `cache/` directory.
 
 ## What's the roadmap?
 

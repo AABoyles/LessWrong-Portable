@@ -1,10 +1,12 @@
 {
   "name": "lesswrong-portable",
-  "version": "0.0.1",
-  "description": "This is the latest in a long history of independent, disorganized projects to scrape collections of posts from LessWrong into ebooks. A few selected examples of others:",
+  "version": "0.1.0",
+  "description": "The latest in a long history of independent, disorganized projects to scrape collections of posts from LessWrong into ebooks",
   "main": "build.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodejs build.js",
+    "build": "nodejs build.js && nodejs build.js codex && nodejs build.js inadequate"
   },
   "repository": {
     "type": "git",
