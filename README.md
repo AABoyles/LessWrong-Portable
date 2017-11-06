@@ -54,6 +54,45 @@ That will download all of the content of [the Codex](https://www.lesserwrong.com
 
 I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new).
 
+## I want to make a custom book/sequence! How do I do that?
+
+First [follow the directions to build your own version](https://github.com/AABoyles/LessWrong-Portable#i-want-to-make-my-own-version-what-should-i-do). Once you get to the build step, instead of building one of the available options, copy the default build meta file to a version named for your own sequence/book.
+
+Say, for example, I want to create a book using some LessWrong posts on meditation. (Note to self: develop actually go do this.) Here's what I'd do:
+
+```bash
+cp meta/default.json meta/meditation.json
+```
+
+Next, edit `meta/meditation.json`. Changing this is mostly optional, except for the URLs. That's really, really important. I want to use these posts as a starting point:
+
+* [Meditation, insight, and rationality. (Part 1 of 3)](https://www.lesserwrong.com/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3)
+* [Meditation, insight, and rationality. (Part 2 of 3)](https://www.lesserwrong.com/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3)
+
+The contents of the urls array in my meta config file isn't the full url, but the path following "https://www.lesserwrong.com". So, my meta config file should look like this:
+
+```json
+{
+	"img": "images/default.png",
+	"shorttitle": "LessWrongOnMeditation",
+	"metadata": {...},
+	"urls": [
+		"/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3",
+    "/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3"
+	]
+}
+```
+
+Now you can build your new book.
+
+```bash
+nodejs build.js meditation
+```
+
+That should generate a new file entitled `output/LessWrongOnMeditation.epub`. Enjoy!
+
+**Best Practice**: Commit your new meta config file to your repository and push it upstream. I'm very interested in aggregating other materials on LessWrong, so if you can manage it, [submit a pull request](https://github.com/AABoyles/LessWrong-Portable/compare)!
+
 ## How did you make the MOBI version?
 
 Turns out that programatically generating [Kindle Formats](https://kdp.amazon.com/en_US/help/topic/A2GF0UFHIYG9VQ) (e.g. [AZW](https://calibre-ebook.com/), [MOBI](https://en.wikipedia.org/wiki/Mobipocket)) is weirdly difficult.
