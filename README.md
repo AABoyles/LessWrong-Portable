@@ -31,43 +31,23 @@ git clone https://github.com/AABoyles/LessWrong-Portable.git
 cd LessWrong-Portable/
 ```
 
-Now, do you use [Python](#python) or [Javascript](#no-javascript)?
-
-### Python!
-
-OK, set up your environment:
-
-```bash
-pip3 install -r requirements.txt
-```
-
-(If you use venv or whatever, good for you.)
-
-Finally, run `build.py`.
-
-```bash
-python3 build.py
-```
-
-That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/codex.epub`). Warning: It runs pretty slowly.
-
-### No, Javascript!
-
-OK, set up your environment:
+Now set up your environment:
 
 ```bash
 npm install
 ```
 
-Finally, run `build.js`.
+Finally, run `build.js`, along with the [name of the book you want to build](https://github.com/AABoyles/LessWrong-Portable/tree/master/meta). Currently, the options include:
+
+* `codex` - [The Codex of Scott Alexander](https://www.lesserwrong.com/codex)
+* `inadequate` - [Inadequate Equilibria](https://equilibriabook.com/) by Eliezer Yudkowsky
+* `default` - A dummy package that demonstrates the JSON schema by creating an ebook containing only [this post](https://www.lesserwrong.com/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0).
 
 ```bash
-nodejs build.js
+nodejs build.js codex
 ```
 
-That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/codex.epub`). LW2.0 is pretty slow, but otherwise the script runs pretty fast :)
-
-### OK, back to platform-agnostic text
+That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/TheCodex.epub`). LW2.0 is pretty slow, but otherwise the script runs pretty fast :)
 
 I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new).
 
@@ -84,21 +64,13 @@ I haven't gotten there yet. Feel free to [fork this repo](https://help.github.co
 
 Go away.
 
-## Why two separate platforms?
-
-I [started this project in Python](https://github.com/AABoyles/LessWrong-Portable/commit/34ed9329ad95f6ae42b21b73808a4c64b30b6648), but the [EPUB library](https://github.com/aerkalov/ebooklib) was irritating me and I couldn't find a good ([Python](https://github.com/kcartlidge/nodepub)) alternative.
-
-## Which version created the output in the Repo?
-
-Javascript.
-
-## Why does the Javascript verion call curl, instead of using an http library?
+## Why does the script call `curl`, instead of using an [http library](https://www.npmjs.com/search?q=curl&page=1&ranking=optimal)?
 
 I went through four different libraries to try to make synchronous http requests, and they all did this super annoying thing where they would return a page that hadn't rendered the text content yet. Weirdly, when I made (what I thought was) the same request in curl, it gave me the content I needed. So, instead of figuring out the right way to do it, I just did the thing that worked.
 
-## Why is the Javascript version synchronous?
+## Why is synchronous requests?
 
-Because this doesn't need to be done fast, but it does need to be done in a precise sequence.
+Because it doesn't need to be done fast, but it does need to be done in a precise sequence.
 
 ## I ran the build myself, but it missed a bunch of essays and just put blank pages where they should've been! What gives?
 
