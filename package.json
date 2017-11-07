@@ -1,10 +1,10 @@
 {
   "name": "lesswrong-portable",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The latest in a long history of independent, disorganized projects to scrape collections of posts from LessWrong into ebooks",
   "main": "build.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rf -r cache/*",
     "start": "nodejs build.js",
     "build": "nodejs build.js && nodejs build.js codex && nodejs build.js inadequate"
   },
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/AABoyles/LessWrong-Portable.git"
   },
-  "author": "",
+  "author": "Tony Boyles",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AABoyles/LessWrong-Portable/issues"
@@ -21,9 +21,6 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "fs-jetpack": "^1.2.0",
-    "nodepub": "^2.0.7",
-    "request": "^2.82.0",
-    "request-promise-native": "^1.0.5",
-    "sync-request": "^4.1.0"
+    "nodepub": "^2.0.7"
   }
 }
