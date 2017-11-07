@@ -1,0 +1,33 @@
+{
+	"img": "images/default.png",
+	"shorttitle": "LessWrongOnMeditation",
+	"metadata": {
+		"id": "LessWrongOnMeditation",
+		"title": "LessWrong On Meditation",
+		"series": "LessWrong",
+		"sequence": 1,
+		"author": "LessWrong Community",
+		"fileAs": "LessWrong",
+		"genre": "Non-Fiction",
+		"tags": "Rationality",
+		"copyright": "LessWrong, 2017",
+		"publisher": "LessWrong",
+		"published": "2017",
+		"language": "en",
+		"description": "LessWrong content regarding Meditation",
+		"contents": "Chapters",
+		"source": "https://www.lesserwrong.com",
+		"images": []
+	},
+	"urls": [
+		"/posts/Qk4h5cCcLmDXuuXYW/beginners-meditation",
+		"/posts/ekziTH4Jko7Q6v4tk/two-weeks-of-meditation-can-reduce-mind-wandering-and",
+		"/posts/JMgffu9AzhYpTpHFJ/meditation-trains-metacognition",
+		"/posts/4DK2rxfzTBK8rCFy9/theory-and-practice-of-meditation",
+		"/posts/CNLMxEkx7PqHnnvxC/understanding-vipassana-meditation",
+		"/posts/NTkBCFJSA4PFBxSM9/vipassana-meditation-developing-meta-feeling-skills",
+		"/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3",
+		"/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3",
+		"/posts/JEbnxsSkvTmewhCtg/meditation-and-mental-space"
+	]
+}
