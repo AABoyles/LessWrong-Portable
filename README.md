@@ -2,7 +2,7 @@
 
 Download the current version of:
 
-* The Codex [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/codex.epub)] [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/codex.mobi)]
+* The Codex [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub)] [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi)]
 * Inadequate Equilibria [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub)] [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.mobi)]
 
 ## About this
