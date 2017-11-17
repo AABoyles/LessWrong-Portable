@@ -58,7 +58,7 @@ I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWro
 
 First [follow the directions to build your own version](https://github.com/AABoyles/LessWrong-Portable#i-want-to-make-my-own-version-what-should-i-do). Once you get to the build step, instead of building one of the available options, copy the default build meta file to a version named for your own sequence/book.
 
-Say, for example, I want to create a book using some LessWrong posts on meditation. (Note to self: develop actually go do this.) Here's what I'd do:
+Say, for example, I want to create a book using some LessWrong posts on meditation. (Note to self: actually go do this.) Here's what I'd do:
 
 ```bash
 cp meta/default.json meta/meditation.json
@@ -110,9 +110,9 @@ Go away.
 
 I went through four different libraries to try to make synchronous http requests, and they all did this super annoying thing where they would return a page that hadn't rendered the text content yet. Weirdly, when I made (what I thought was) the same request in curl, it gave me the content I needed. So, instead of figuring out the right way to do it, I just did the thing that worked.
 
-## Why is synchronous requests?
+## Why synchronous requests?
 
-Because it doesn't need to be done fast, but it does need to be done in a precise sequence.
+Because it doesn't need to be done fast, but it does need to be done in a precise sequence. Writing an asynchronous version might save a few seconds at runtime, but would take me at least another hour or two to code up. I strongly doubt the number of times this script will ever be run will add up to the development time cost.
 
 ## I ran the build myself, but it missed a bunch of essays and just put blank pages where they should've been! What gives?
 
