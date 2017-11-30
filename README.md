@@ -1,13 +1,16 @@
 # LessWrong Portable
 
-Download the current version of:
+Download the current versions of:
 
-* The Codex [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub)] [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi)]
-* Inadequate Equilibria [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub)] [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.mobi)]
+| Title | EPUB | MOBI |
+| ----- | ---- | ---- |
+| The Codex | [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub)] | [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi)] |
+| Inadequate Equilibria | [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub)] | [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.mobi)] |
+| The Hedonistic Imperative | [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub)] | [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.mobi)] |
 
 ## About this
 
-This is the latest in a long history of independent, disorganized projects to scrape collections of posts from LessWrong into ebooks. A few selected examples of others:
+This is started as the latest in a long history of independent, disorganized projects to scrape collections of posts from LessWrong into ebooks. A few selected examples of others:
 
 * [jb55's lesswrong-print](https://github.com/jb55/lesswrong-print)
 * [dato's lesswrong-bundle](https://github.com/dato/lesswrong-bundle)
@@ -17,9 +20,11 @@ This is the latest in a long history of independent, disorganized projects to sc
 
 ...Not to mention the [official version of the Sequences](https://intelligence.org/rationality-ai-zombies/).
 
-So, why on earth should I start another? [LessWrong 2.0](http://lesserwrong.com/). If LessWrong 2.0 [is voted to replace LessWrong Classic](http://lesswrong.com/lw/pfl/lw_20_open_beta_live/) (see point 4), All the existing aggregators will break. This isn't a big deal, since they really only need to run once (correctly) in order to create the ebook, but anyone who wants to modify them and scrape new ebooks won't be able to use them.
+So, why on earth did I start another? [LessWrong 2.0](http://lesserwrong.com/). If LessWrong 2.0 [is voted to replace LessWrong Classic](http://lesswrong.com/lw/pfl/lw_20_open_beta_live/) (see point 4), All the existing aggregators will break. This isn't a big deal, since they really only need to run once (correctly) in order to create the ebook, but anyone who wants to modify them and scrape new ebooks won't be able to use them.
 
 As separate rationale, [Scott Alexander's Codex](https://www.lesserwrong.com/codex) is open for reading now that the site is [in open beta](http://lesswrong.com/lw/pfl/lw_20_open_beta_live/). Not that all this content wasn't [available elsewhere](https://nothingismere.com/2015/09/12/library-of-scott-alexandria/) before, but this is the most intentional linearly-organized collection of his best writings I've seen. I want to read it, and as I read most things, I want to do it on my ebook reader.
+
+However, I realized that (with a tiny bit of refactoring) this is flexible enough to work on content outside of LW2. To demonstrate this, I used it to assemble David Pearce's [Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm). The formatting of [the output](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.epub) is a bit dirty, but the text is loud-and-clear.
 
 ## Where are the Ebook files?
 
@@ -45,6 +50,7 @@ Finally, run `build.js`, along with the [name of the book you want to build](htt
 * `codex` - [The Codex of Scott Alexander](https://www.lesserwrong.com/codex)
 * `inadequate` - [Inadequate Equilibria](https://equilibriabook.com/) by Eliezer Yudkowsky
 * `default` - A dummy package that demonstrates the JSON schema by creating an ebook containing only [this post](https://www.lesserwrong.com/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0).
+* `hedonic` - [The Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm) by David Pearce
 
 ```bash
 nodejs build.js codex
@@ -73,15 +79,19 @@ The contents of the urls array in my meta config file isn't the full url, but th
 
 ```json
 {
-	"img": "images/default.png",
+	"img": "images/lw.png",
 	"shorttitle": "LessWrongOnMeditation",
 	"metadata": {...},
+	"titleSelector": "div.posts-page-content-header-title",
+	"contentSelector": "div.posts-page-content-body-html",
 	"urls": [
 		"/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3",
     "/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3"
 	]
 }
 ```
+
+If you want to make a book from content outside of LW2, you're going to need to change a few more things. The fields in the `metadata` object should be more-or-less self-explanatory. `metadata.source` is used as the base URL for the contents of the `urls` array, so make sure that putting the two together generates a valid and correct URL. The `titleSelector` and `contentSelector` fields, probably less so. If you're not familiar with [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors), this is going to take a little bit of training. Feel free to email me for help.
 
 Now you can build your new book.
 
@@ -95,7 +105,7 @@ That should generate a new file entitled `output/LessWrongOnMeditation.epub`. En
 
 ## How did you make the MOBI version?
 
-Turns out that programatically generating [Kindle Formats](https://kdp.amazon.com/en_US/help/topic/A2GF0UFHIYG9VQ) (e.g. [AZW](https://calibre-ebook.com/), [MOBI](https://en.wikipedia.org/wiki/Mobipocket)) is weirdly difficult.
+It turns out that programatically generating [Kindle Formats](https://kdp.amazon.com/en_US/help/topic/A2GF0UFHIYG9VQ) (e.g. [AZW](https://calibre-ebook.com/), [MOBI](https://en.wikipedia.org/wiki/Mobipocket)) is weirdly difficult.
 Use [Calibre](https://calibre-ebook.com/) or [this Weird Script from Amazon](https://www.amazon.com/gp/feature.html?docId=1000765211).
 
 ## How do you make a PDF/Text/Markdown/[Whatever] Version?
@@ -121,7 +131,7 @@ If the server [barfs](http://catb.org/jargon/html/B/barf.html) for some reason, 
 ## What's the roadmap?
 
 1. Read the Codex on my Kindle, 'cuz that's the real reason I started this thing.
-2. Add infrastructure to make the content switchable (e.g. pass an argument to build the Codex, a different one to build HPMOR, a third for R:A-Z, etc.)
+2. Whatever's in [the issues queue](https://github.com/AABoyles/LessWrong-Portable/issues).
 3. Maybe organize some new sequences in a way that I find useful and add them.
 
 If you want anything else, [let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new) and I'll tackle it when I've got some spare time. HAHAHAHA.
