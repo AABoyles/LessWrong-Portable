@@ -17,23 +17,33 @@ epub.addSection('Title Page', "<h1>[[TITLE]]</h1><h3>by [[AUTHOR]]</h3>", true, 
 
 var base_content = jetpack.read('template.xhtml');
 
-function addChapterToBook(html, path){
+function addChapterToBook(html, url){
   let $ = cheerio.load(html);
   let title = $(config.titleSelector).text();
+  let content = $(config.contentSelector).html();
+  let path = url;
+  if(typeof url === 'object'){
+    path = url.url;
+    if(url.titleSelector) title = $(url.titleSelector).text();
+    if(url.contentSelector) content = $(url.contentSelector).text();
+  }
   if(title === ''){
     console.log('Server barfed on', path);
     jetpack.remove('cache/' + path.trim().split('/').pop() + '.html');
-    // Normally, a script would submit another request to download the missing file.
-    // Unfortunately, the problem is on LW's side, so there's no point.
   }
   let safe_title = title.toLowerCase().replace(/ /g, '-');
   let newDoc = cheerio.load(base_content);
   newDoc('body').append('<div id="'+safe_title+'"></div>');
-  newDoc('div').append('<h1>'+title+'</h1>').append($(config.contentSelector).html());
+  newDoc('div').append('<h1>'+title+'</h1>').append(content);
   epub.addSection(title, newDoc('body').html());
 }
 
-config.urls.forEach(path => {
+config.urls.forEach(url => {
+  if(typeof url === 'string'){
+    path = url;
+  } else {
+    path = url.url;
+  }
   cache_path = 'cache/' + path.trim().split('/').pop() + '.html';
   if(jetpack.exists(cache_path)){
     var html = jetpack.read(cache_path);
@@ -43,7 +53,7 @@ config.urls.forEach(path => {
     var html = r.toString();
     jetpack.write(cache_path, html);
   }
-  addChapterToBook(html, path);
+  addChapterToBook(html, url);
 });
 
 epub.writeEPUB(()=>{}, 'output', config.shorttitle, ()=>{});
