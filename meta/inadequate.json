@@ -19,6 +19,8 @@
 		"source": "https://www.lesserwrong.com",
 		"images": []
 	},
+	"titleSelector": "div.posts-page-content-header-title",
+	"contentSelector": "div.posts-page-content-body-html",
 	"urls": [
 		"/posts/zsG9yKcriht2doRhM/inadequacy-and-modesty",
 		"/posts/yPLr2tnXbiFXkMWvk/an-equilibrium-of-no-free-energy",
