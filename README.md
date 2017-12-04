@@ -2,11 +2,12 @@
 
 Download the current versions of:
 
-| Title | EPUB | MOBI |
-| ----- | ---- | ---- |
-| The Codex | [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub)] | [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi)] |
-| Inadequate Equilibria | [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub)] | [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.mobi)] |
-| The Hedonistic Imperative | [[EPUB](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub)] | [[MOBI](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.mobi)] |
+| Title | Author | EPUB | MOBI |
+| ----- | ------ | ---- | ---- |
+| [The Codex](https://www.lesserwrong.com/codex) | Scott Alexander | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi) |
+| [Inadequate Equilibria](https://equilibriabook.com/) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.mobi) |
+| [The Hedonistic Imperative](https://www.hedweb.com/hedethic/tabconhi.htm) | David Pearce | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.mobi) |
+| [Wait But Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) | Tim Urban | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.mobi) |
 
 ## About this
 
@@ -47,10 +48,11 @@ npm install
 
 Finally, run `build.js`, along with the [name of the book you want to build](https://github.com/AABoyles/LessWrong-Portable/tree/master/meta). Currently, the options include:
 
+* `default` - A dummy package that demonstrates the JSON schema by creating an ebook containing only [this post](https://www.lesserwrong.com/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0).
 * `codex` - [The Codex of Scott Alexander](https://www.lesserwrong.com/codex)
 * `inadequate` - [Inadequate Equilibria](https://equilibriabook.com/) by Eliezer Yudkowsky
-* `default` - A dummy package that demonstrates the JSON schema by creating an ebook containing only [this post](https://www.lesserwrong.com/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0).
 * `hedonic` - [The Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm) by David Pearce
+* `wbwelonmusk` - [Wait but Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) by Tim Urban
 
 ```bash
 nodejs build.js codex
@@ -62,9 +64,9 @@ I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWro
 
 ## I want to make a custom book/sequence! How do I do that?
 
-First [follow the directions to build your own version](https://github.com/AABoyles/LessWrong-Portable#i-want-to-make-my-own-version-what-should-i-do). Once you get to the build step, instead of building one of the available options, copy the default build meta file to a version named for your own sequence/book.
+First [follow the directions to build your own version](https://github.com/AABoyles/LessWrong-Portable#i-want-to-make-my-own-version-what-should-i-do). Once you get to the build step (i.e. `nodejs build.js <whatever>`), instead of building one of the available options, copy the default build meta file to a version named for your own sequence/book.
 
-Say, for example, I want to create a book using some LessWrong posts on meditation. (Note to self: actually go do this.) Here's what I'd do:
+Say, for example, I want to create a book using some LessWrong posts on meditation. (Note to self: actually do this.) Here's what I'd do:
 
 ```bash
 cp meta/default.json meta/meditation.json
@@ -101,7 +103,7 @@ nodejs build.js meditation
 
 That should generate a new file entitled `output/LessWrongOnMeditation.epub`. Enjoy!
 
-**Best Practice**: Commit your new meta config file to your repository and push it upstream. I'm very interested in aggregating other materials on LessWrong, so if you can manage it, [submit a pull request](https://github.com/AABoyles/LessWrong-Portable/compare)!
+**Best Practice**: Commit your new meta config file to your repository and push it upstream. I'm very interested in aggregating other materials, so if you can manage it, [submit a pull request](https://github.com/AABoyles/LessWrong-Portable/compare)!
 
 ## How did you make the MOBI version?
 
