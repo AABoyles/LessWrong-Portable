@@ -1,0 +1,33 @@
+{
+	"img": "images/default.png",
+	"shorttitle": "WBWonElonMusk",
+	"metadata": {
+		"id": "WBWonElonMusk",
+		"title": "Wait but Why on Elon Musk",
+		"series": "Wait But Why",
+		"sequence": 1,
+		"author": "Tim Urban",
+		"fileAs": "Non-Fiction",
+		"genre": "Technology",
+		"tags": "Business",
+		"copyright": "Tim Urban, 2016",
+		"publisher": "Wait but Why",
+		"published": "2016",
+		"language": "en",
+		"description": "",
+		"contents": "Chapters",
+		"source": "https://waitbutwhy.com/",
+		"images": []
+	},
+	"titleSelector": "header.entry-header h1",
+	"contentSelector": "article",
+	"urls": [
+		"2015/05/elon-musk-the-worlds-raddest-man.html",
+		"2015/06/how-tesla-will-change-your-life.html",
+		"2015/06/the-deal-with-solar.html",
+		"2015/06/hyperloop.html",
+		"2015/08/how-and-why-spacex-will-colonize-mars.html",
+		"2016/09/spacexs-big-fking-rocket-the-full-story.html",
+		"2017/04/neuralink.html"
+	]
+}
