@@ -8,6 +8,7 @@ Download the current versions of:
 | [Inadequate Equilibria](https://equilibriabook.com/) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.mobi) |
 | [The Hedonistic Imperative](https://www.hedweb.com/hedethic/tabconhi.htm) | David Pearce | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.mobi) |
 | [Wait But Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) | Tim Urban | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.mobi) |
+| [Legal Systems Very Different From Ours]() | David Friedman | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.mobi) |
 
 ## About this
 
@@ -129,6 +130,14 @@ Because it doesn't need to be done fast, but it does need to be done in a precis
 ## I ran the build myself, but it missed a bunch of essays and just put blank pages where they should've been! What gives?
 
 If the server [barfs](http://catb.org/jargon/html/B/barf.html) for some reason, the script will continue. After all, why waste bandwidth and effort? Re-run it and it will only try to download the files it didn't get the first time. There may be a couple that aren't downloading for structural, rather than probabilistic reasons. To fill these in for the [canonical ebooks](https://github.com/AABoyles/LessWrong-Portable/tree/master/output), I just manually saved copies of those pages in the `cache/` directory.
+
+## What's the deal with *Legal Systems Very Different From Ours*?
+
+*Legal Systems Very Different From Ours* is an unpublished manuscript by David Friedman. It's available in two formats: [Word](http://www.daviddfriedman.com/Legal%20Systems/LegalSystemsContents.htm) and [HTML](http://www.daviddfriedman.com/Academic/Course_Pages/legal_systems_very_different_12/LegalSystemsDraft.html). I decided to try to build an ebook based on the Word documents. Partly, I wanted to extend this script to crunch arbitrary Word Documents, but mostly I wanted the latest edition of the manuscript. As best as I can tell, the HTML version was last touched in late 2011, whereas the Word versions date to 2015ish.
+
+Anyway, that turned out to be a critical error. Munging Word documents is difficult because, frankly, Word encourages the user to adopt undesirable and inconsistent typesetting practices, making it arbitrarily difficult to scrape. I finally managed to scrape *Legal Systems*, but with a significant amount of hacking and non-generalizable code. Accordingly, I'm keeping the [meta file](https://github.com/AABoyles/LessWrong-Portable/blob/master/meta/legalsystems.json) and [output](https://github.com/AABoyles/LessWrong-Portable/blob/master/output), but ditching the code I had to use to build it. If you want to try to build it yourself, please be my guest, but I'm not helping ;)
+
+That said, if you figure out a not-crazy way that would generalize to other Word-based books, please (please please) submit a pull request!
 
 ## What's the roadmap?
 
