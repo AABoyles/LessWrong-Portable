@@ -1,0 +1,40 @@
+{
+	"img": "images/lw.png",
+	"shorttitle": "IntelligentCharacters",
+	"metadata": {
+		"id": "IntelligentCharacters",
+		"title": "The Abridged Guide to Intelligent Characters",
+		"series": "",
+		"sequence": 1,
+		"author": "Eliezer Yudkowsky",
+		"fileAs": "LessWrong",
+		"genre": "Non-Fiction",
+		"tags": "Rationality",
+		"copyright": "Eliezer Yudkowsky, 2017",
+		"publisher": "Eliezer Yudkowsky",
+		"published": "2017",
+		"language": "en",
+		"description": "This is “The Abridged Guide to Intelligent Characters”, a series of shortened excerpts of a minibook-in-progress on How To Write Intelligent Characters",
+		"contents": "Chapters",
+		"source": "http://yudkowsky.tumblr.com/writing/",
+		"images": []
+	},
+	"titleSelector": "article div h2",
+	"contentSelector": "article div",
+	"urls": [
+		"",
+		"level1intelligent",
+		"empathyrespect",
+		"thoughtful-responses",
+		"moral-conflicts",
+		"realistic-viewpoints",
+		"originality",
+		"genre-savviness",
+		"level2intelligent",
+		"inexploitability",
+		"other-universes",
+		"solvable-mysteries",
+		"real-learning",
+		"level3intelligent"
+	]
+}

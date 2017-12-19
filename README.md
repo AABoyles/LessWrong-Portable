@@ -6,6 +6,7 @@ Download the current versions of:
 | ----- | ------ | ---- | ---- |
 | [The Codex](https://www.lesserwrong.com/codex) | Scott Alexander | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi) |
 | [Inadequate Equilibria](https://equilibriabook.com/) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.mobi) |
+| [The Abridged Guide to Intelligent Characters](http://yudkowsky.tumblr.com/writing) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.mobi) |
 | [The Hedonistic Imperative](https://www.hedweb.com/hedethic/tabconhi.htm) | David Pearce | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.mobi) |
 | [Wait But Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) | Tim Urban | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.mobi) |
 | [Legal Systems Very Different From Ours]() | David Friedman | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.mobi) |
@@ -52,6 +53,7 @@ Finally, run `build.js`, along with the [name of the book you want to build](htt
 * `default` - A dummy package that demonstrates the JSON schema by creating an ebook containing only [this post](https://www.lesserwrong.com/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0).
 * `codex` - [The Codex of Scott Alexander](https://www.lesserwrong.com/codex)
 * `inadequate` - [Inadequate Equilibria](https://equilibriabook.com/) by Eliezer Yudkowsky
+* `intelligent` - [The Abridged Guid to Intelligent Characters](http://yudkowsky.tumblr.com/writing) by Eliezer Yudkowsky
 * `hedonic` - [The Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm) by David Pearce
 * `wbwelonmusk` - [Wait but Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) by Tim Urban
 
