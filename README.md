@@ -9,7 +9,7 @@ Download the current versions of:
 | [The Abridged Guide to Intelligent Characters](http://yudkowsky.tumblr.com/writing) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.mobi) |
 | [The Hedonistic Imperative](https://www.hedweb.com/hedethic/tabconhi.htm) | David Pearce | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.mobi) |
 | [Wait But Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) | Tim Urban | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.mobi) |
-| [Legal Systems Very Different From Ours]() | David Friedman | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.mobi) |
+| [Legal Systems Very Different From Ours](http://www.daviddfriedman.com/Academic/Course_Pages/legal_systems_very_different_12/LegalSystemsDraft.html) | David Friedman | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.mobi) |
 
 ## About this
 
