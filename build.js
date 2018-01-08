@@ -17,7 +17,7 @@ epub.addSection('Title Page', "<h1>[[TITLE]]</h1><h3>by [[AUTHOR]]</h3>", true, 
 
 var base_content = jetpack.read('template.xhtml');
 
-function addChapterToBook(html, url){
+function addChapterToBook(html, url, cache_path){
   let $ = cheerio.load(html);
   let title = $(config.titleSelector).text();
   let content = $(config.contentSelector).html();
@@ -29,7 +29,7 @@ function addChapterToBook(html, url){
   }
   if(title === ''){
     console.log('Server barfed on', path);
-    jetpack.remove('cache/' + path.trim().split('/').pop() + '.html');
+    jetpack.remove(cache_path);
   }
   let safe_title = title.toLowerCase().replace(/ /g, '-');
   let newDoc = cheerio.load(base_content);
@@ -44,16 +44,14 @@ config.urls.forEach(url => {
   } else {
     path = url.url;
   }
-  cache_path = 'cache/' + path.trim().split('/').pop() + '.html';
-  if(jetpack.exists(cache_path)){
-    var html = jetpack.read(cache_path);
-  } else {
+  let stem = path.trim().split('/').pop();
+  cache_path = './cache/' + stem + (stem.split('.').pop() !== 'html' ? '.html' : '');
+  if(!jetpack.exists(cache_path)){
     console.log('Scraping', config.metadata.source + path);
-    var r = execSync('curl ' + config.metadata.source + path);
-    var html = r.toString();
-    jetpack.write(cache_path, html);
+    var r = execSync('wget ' + config.metadata.source + path + ' -nc -O ' + cache_path);
   }
-  addChapterToBook(html, url);
+  var html = jetpack.read(cache_path);
+  addChapterToBook(html, url, cache_path);
 });
 
 epub.writeEPUB(()=>{}, 'output', config.shorttitle, ()=>{});
