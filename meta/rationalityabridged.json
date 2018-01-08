@@ -1,0 +1,32 @@
+{
+	"img": "images/lw.png",
+	"shorttitle": "RationalityAbridged",
+	"metadata": {
+		"id": "RationalityAbridged",
+		"title": "Rationality Abridged",
+		"series": "",
+		"author": "Quaerendo",
+		"fileAs": "LessWrong",
+		"genre": "Non-Fiction",
+		"tags": "Rationality",
+		"copyright": "Quaerendo, 2018",
+		"publisher": "LessWrong",
+		"published": "2018",
+		"language": "en",
+		"description": "",
+		"contents": "Chapters",
+		"source": "https://perpetualcanon.blogspot.nl/",
+		"images": []
+	},
+	"titleSelector": "h3.post-title.entry-title",
+	"contentSelector": "div.post-body.entry-content",
+	"urls": [
+		"p/rationality.html",
+		"2018/01/the-first-book-of-rationality.html",
+		"2018/01/the-second-book-of-rationality.html",
+		"2018/01/the-third-book-of-rationality.html",
+		"2018/01/the-fourth-book-of-rationality.html",
+		"2018/01/the-penultimate-book-of-rationality.html",
+		"2018/01/the-final-book-of-rationality.html"
+	]
+}

@@ -5,6 +5,7 @@ Download the current versions of:
 | Title | Author | EPUB | MOBI |
 | ----- | ------ | ---- | ---- |
 | [The Codex](https://www.lesserwrong.com/codex) | Scott Alexander | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi) |
+| [Rationality Abridged](https://perpetualcanon.blogspot.nl/p/rationality.html) | https://www.lesserwrong.com/users/quaerendo | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/RationalityAbridged.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/RationalityAbridged.mobi) |
 | [Inadequate Equilibria](https://equilibriabook.com/) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.mobi) |
 | [The Abridged Guide to Intelligent Characters](http://yudkowsky.tumblr.com/writing) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.mobi) |
 | [The Hedonistic Imperative](https://www.hedweb.com/hedethic/tabconhi.htm) | David Pearce | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.mobi) |
@@ -52,8 +53,10 @@ Finally, run `build.js`, along with the [name of the book you want to build](htt
 
 * `default` - A dummy package that demonstrates the JSON schema by creating an ebook containing only [this post](https://www.lesserwrong.com/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0).
 * `codex` - [The Codex of Scott Alexander](https://www.lesserwrong.com/codex)
+* `rationalityabridged` - [Rationality Abridged](https://perpetualcanon.blogspot.nl/p/rationality.html) by Quaerendo
 * `inadequate` - [Inadequate Equilibria](https://equilibriabook.com/) by Eliezer Yudkowsky
-* `intelligent` - [The Abridged Guid to Intelligent Characters](http://yudkowsky.tumblr.com/writing) by Eliezer Yudkowsky
+* `meditation` - [LessWrong on Meditation](http://lesswrong.com/) by LessWrong Authors
+* `intelligent` - [The Abridged Guide to Intelligent Characters](http://yudkowsky.tumblr.com/writing) by Eliezer Yudkowsky
 * `hedonic` - [The Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm) by David Pearce
 * `wbwelonmusk` - [Wait but Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) by Tim Urban
 
@@ -69,13 +72,13 @@ I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWro
 
 First [follow the directions to build your own version](https://github.com/AABoyles/LessWrong-Portable#i-want-to-make-my-own-version-what-should-i-do). Once you get to the build step (i.e. `nodejs build.js <whatever>`), instead of building one of the available options, copy the default build meta file to a version named for your own sequence/book.
 
-Say, for example, I want to create a book using some LessWrong posts on meditation. (Note to self: actually do this.) Here's what I'd do:
+For example, I wanted to create a book using some LessWrong posts on meditation. Here's what I did:
 
 ```bash
 cp meta/default.json meta/meditation.json
 ```
 
-Next, edit `meta/meditation.json`. Changing this is mostly optional, except for the URLs. That's really, really important. I want to use these posts as a starting point:
+Next, edit `meta/meditation.json`. Changing this is mostly optional, except for the URLs. That's really, really important. I used these posts as a starting point:
 
 * [Meditation, insight, and rationality. (Part 1 of 3)](https://www.lesserwrong.com/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3)
 * [Meditation, insight, and rationality. (Part 2 of 3)](https://www.lesserwrong.com/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3)
@@ -121,7 +124,7 @@ I haven't gotten there yet. Feel free to [fork this repo](https://help.github.co
 
 Go away.
 
-## Why does the script call `curl`, instead of using an [http library](https://www.npmjs.com/search?q=curl&page=1&ranking=optimal)?
+## Why does the script call `wget`, instead of using an [http library](https://www.npmjs.com/search?q=curl&page=1&ranking=optimal)?
 
 I went through four different libraries to try to make synchronous http requests, and they all did this super annoying thing where they would return a page that hadn't rendered the text content yet. Weirdly, when I made (what I thought was) the same request in curl, it gave me the content I needed. So, instead of figuring out the right way to do it, I just did the thing that worked.
 
@@ -131,7 +134,7 @@ Because it doesn't need to be done fast, but it does need to be done in a precis
 
 ## I ran the build myself, but it missed a bunch of essays and just put blank pages where they should've been! What gives?
 
-If the server [barfs](http://catb.org/jargon/html/B/barf.html) for some reason, the script will continue. After all, why waste bandwidth and effort? Re-run it and it will only try to download the files it didn't get the first time. There may be a couple that aren't downloading for structural, rather than probabilistic reasons. To fill these in for the [canonical ebooks](https://github.com/AABoyles/LessWrong-Portable/tree/master/output), I just manually saved copies of those pages in the `cache/` directory.
+If the server [barfs](http://catb.org/jargon/html/B/barf.html) for some reason, the script will continue. After all, why waste bandwidth and effort? Re-run it and it will only try to download the files it didn't get the first time. There may be a couple that aren't downloading for structural, rather than essentially random reasons. To fill these in for the [canonical ebooks](https://github.com/AABoyles/LessWrong-Portable/tree/master/output), I just manually saved copies of those pages in the `cache/` directory.
 
 ## What's the deal with *Legal Systems Very Different From Ours*?
 
@@ -143,8 +146,7 @@ That said, if you figure out a not-crazy way that would generalize to other Word
 
 ## What's the roadmap?
 
-1. Read the Codex on my Kindle, 'cuz that's the real reason I started this thing.
-2. Whatever's in [the issues queue](https://github.com/AABoyles/LessWrong-Portable/issues).
-3. Maybe organize some new sequences in a way that I find useful and add them.
+1. Whatever's in [the issues queue](https://github.com/AABoyles/LessWrong-Portable/issues).
+2. Maybe organize some new sequences in a way that I find useful and add them.
 
 If you want anything else, [let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new) and I'll tackle it when I've got some spare time. HAHAHAHA.
