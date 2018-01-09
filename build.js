@@ -9,6 +9,8 @@ var version = process.argv.length > 2 ? process.argv[2] : 'default';
 
 const config = JSON.parse(jetpack.read('meta/' + version + '.json'));
 
+var scrapeError = false;
+
 var epub = makepub.document(config.metadata, config.img);
 
 epub.addCSS(jetpack.read('style/base.css'));
@@ -28,8 +30,9 @@ function addChapterToBook(html, url, cache_path){
     if(url.contentSelector) content = $(url.contentSelector).text();
   }
   if(title === ''){
-    console.log('Server barfed on', path);
+    console.log('Couldn\'t correctly scrape', path);
     jetpack.remove(cache_path);
+    scrapeError = true;
   }
   let safe_title = title.toLowerCase().replace(/ /g, '-');
   let newDoc = cheerio.load(base_content);
@@ -48,10 +51,15 @@ config.urls.forEach(url => {
   cache_path = './cache/' + stem + (stem.split('.').pop() !== 'html' ? '.html' : '');
   if(!jetpack.exists(cache_path)){
     console.log('Scraping', config.metadata.source + path);
-    var r = execSync('wget ' + config.metadata.source + path + ' -nc -O ' + cache_path);
+    execSync('wget ' + config.metadata.source + path + ' -nc -q -O ' + cache_path);
   }
-  var html = jetpack.read(cache_path);
-  addChapterToBook(html, url, cache_path);
+  addChapterToBook(jetpack.read(cache_path), url, cache_path);
 });
 
-epub.writeEPUB(()=>{}, 'output', config.shorttitle, ()=>{});
+if(scrapeError){
+  console.log('Scrape errors occurred: No book produced.');
+} else {
+  epub.writeEPUB(console.error, 'output2', config.shorttitle, ()=>{
+    console.log('Book successfully written to output/' + config.shorttitle + '.epub');
+  });
+}
