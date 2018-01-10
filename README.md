@@ -11,6 +11,7 @@ Download the current versions of:
 | [The Hedonistic Imperative](https://www.hedweb.com/hedethic/tabconhi.htm) | David Pearce | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.mobi) |
 | [Wait But Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) | Tim Urban | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.mobi) |
 | [Legal Systems Very Different From Ours](http://www.daviddfriedman.com/Academic/Course_Pages/legal_systems_very_different_12/LegalSystemsDraft.html) | David Friedman | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.mobi) |
+| [Replacing Guilt](http://mindingourway.com/guilt/) | Nate Soares | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/ReplacingGuilt.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/ReplacingGuilt.mobi) |
 
 ## About this
 
@@ -59,6 +60,7 @@ Finally, run `build.js`, along with the [name of the book you want to build](htt
 * `intelligent` - [The Abridged Guide to Intelligent Characters](http://yudkowsky.tumblr.com/writing) by Eliezer Yudkowsky
 * `hedonic` - [The Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm) by David Pearce
 * `wbwelonmusk` - [Wait but Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) by Tim Urban
+* `replacingguilt` - [The Replacing Guilt Series](http://mindingourway.com/guilt/) by Nate Soares
 
 ```bash
 nodejs build.js codex
