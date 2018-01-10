@@ -96,7 +96,7 @@ The contents of the urls array in my meta config file isn't the full url, but th
 	"contentSelector": "div.posts-page-content-body-html",
 	"urls": [
 		"/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3",
-    "/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3"
+		"/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3"
 	]
 }
 ```
@@ -128,15 +128,17 @@ Go away.
 
 ## Why does the script call `wget`, instead of using an [http library](https://www.npmjs.com/search?q=curl&page=1&ranking=optimal)?
 
-I went through four different libraries to try to make synchronous http requests, and they all did this super annoying thing where they would return a page that hadn't rendered the text content yet. Weirdly, when I made (what I thought was) the same request in curl, it gave me the content I needed. So, instead of figuring out the right way to do it, I just did the thing that worked.
+I went through four different libraries to try to make synchronous http requests, and they all did this super annoying thing where they would return a page that hadn't rendered the text content yet. Weirdly, when I made (what I thought was) the same request in `curl`, it gave me the content I needed. So, instead of figuring out the right way to do it, I just did the thing that worked. I switched to `wget` when I needed to run a build on a Windows machine and `wget` was easier to get running. This confers the added bonus in that Ubuntu has `wget` out of the box but `curl` must be installed.
 
 ## Why synchronous requests?
 
 Because it doesn't need to be done fast, but it does need to be done in a precise sequence. Writing an asynchronous version might save a few seconds at runtime, but would take me at least another hour or two to code up. I strongly doubt the number of times this script will ever be run will add up to the development time cost.
 
-## I ran the build myself, but it missed a bunch of essays and just put blank pages where they should've been! What gives?
+## I ran the build myself, but it failed! What gives?
 
 If the server [barfs](http://catb.org/jargon/html/B/barf.html) for some reason, the script will continue. After all, why waste bandwidth and effort? Re-run it and it will only try to download the files it didn't get the first time. There may be a couple that aren't downloading for structural, rather than essentially random reasons. To fill these in for the [canonical ebooks](https://github.com/AABoyles/LessWrong-Portable/tree/master/output), I just manually saved copies of those pages in the `cache/` directory.
+
+If it's having trouble with a custom book you've cooked up, make sure that your the CSS selector for the title is *exactly* correct. It should be precise enough to identify the title and only the title. If the selector comes up empty, [LWP](https://github.com/AABoyles/LessWrong-Portable#lesswrong-portable) assumes it failed and won't generate a book in the end, though it will continue caching content until it reaches the end of the available URLs.
 
 ## What's the deal with *Legal Systems Very Different From Ours*?
 
