@@ -59,7 +59,7 @@ config.urls.forEach(url => {
 if(scrapeError){
   console.log('Scrape errors occurred: No book produced.');
 } else {
-  epub.writeEPUB(console.error, 'output2', config.shorttitle, ()=>{
+  epub.writeEPUB(console.error, 'output', config.shorttitle, ()=>{
     console.log('Book successfully written to output/' + config.shorttitle + '.epub');
   });
 }
