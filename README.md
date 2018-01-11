@@ -6,10 +6,7 @@ Download the current versions of:
 | ----- | ------ | ---- | ---- |
 | [The Codex](https://www.lesserwrong.com/codex) | Scott Alexander | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi) |
 | [Rationality Abridged](https://perpetualcanon.blogspot.nl/p/rationality.html) | Quaerendo | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/RationalityAbridged.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/RationalityAbridged.mobi) |
-| [Inadequate Equilibria](https://equilibriabook.com/) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.mobi) |
 | [The Abridged Guide to Intelligent Characters](http://yudkowsky.tumblr.com/writing) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.mobi) |
-| [The Hedonistic Imperative](https://www.hedweb.com/hedethic/tabconhi.htm) | David Pearce | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/InadequateEquilibria.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.mobi) |
-| [Wait But Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) | Tim Urban | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/WBWonElonMusk.mobi) |
 | [Legal Systems Very Different From Ours](http://www.daviddfriedman.com/Academic/Course_Pages/legal_systems_very_different_12/LegalSystemsDraft.html) | David Friedman | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/LegalSystemsVeryDifferentFromOurs.mobi) |
 | [Replacing Guilt](http://mindingourway.com/guilt/) | Nate Soares | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/ReplacingGuilt.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/ReplacingGuilt.mobi) |
 
@@ -29,7 +26,7 @@ So, why on earth did I start another? [LessWrong 2.0](http://lesserwrong.com/). 
 
 As separate rationale, [Scott Alexander's Codex](https://www.lesserwrong.com/codex) is open for reading now that the site is [in open beta](http://lesswrong.com/lw/pfl/lw_20_open_beta_live/). Not that all this content wasn't [available elsewhere](https://nothingismere.com/2015/09/12/library-of-scott-alexandria/) before, but this is the most intentional linearly-organized collection of his best writings I've seen. I want to read it, and as I read most things, I want to do it on my ebook reader.
 
-However, I realized that (with a tiny bit of refactoring) this is flexible enough to work on content outside of LW2. To demonstrate this, I used it to assemble David Pearce's [Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm). The formatting of [the output](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/HedonisticImperative.epub) is a bit dirty, but the text is loud-and-clear.
+However, I realized that (with a tiny bit of refactoring) this is flexible enough to work on content outside of LW2.
 
 ## Where are the Ebook files?
 
@@ -58,10 +55,12 @@ Finally, run `build.js`, along with the [name of the book you want to build](htt
 * `inadequate` - [Inadequate Equilibria](https://equilibriabook.com/) by Eliezer Yudkowsky
 * `meditation` - [LessWrong on Meditation](http://lesswrong.com/) by LessWrong Authors
 * `intelligent` - [The Abridged Guide to Intelligent Characters](http://yudkowsky.tumblr.com/writing) by Eliezer Yudkowsky
-* `hedonic` - [The Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm) by David Pearce
-* `wbwelonmusk` - [Wait but Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) by Tim Urban
 * `replacingguilt` - [The Replacing Guilt Series](http://mindingourway.com/guilt/) by Nate Soares
 
+There are also meta files for some other content from outside the rationalist community:
+
+* `hedonistic` - [The Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm) by David Pearce
+* `wbwelonmusk` - [Wait but Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) by Tim Urban
 * `scip` - [The Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/full-text/book/)
 
 So, for example:
@@ -70,13 +69,13 @@ So, for example:
 nodejs build.js codex
 ```
 
-That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/TheCodex.epub`). LW2.0 is pretty slow, but otherwise the script runs pretty fast :)
+That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/TheCodex.epub`). LW2 pageloads are pretty slow, but otherwise the script runs pretty fast :)
 
 I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new).
 
 ## I want to make a custom book/sequence! How do I do that?
 
-First [follow the directions to build your own version](https://github.com/AABoyles/LessWrong-Portable#i-want-to-make-my-own-version-what-should-i-do). Once you get to the build step (i.e. `nodejs build.js <whatever>`), instead of building one of the available options, copy the default build meta file to a version named for your own sequence/book.
+First [follow the directions to build your own version](https://github.com/AABoyles/LessWrong-Portable#i-want-to-make-my-own-version-what-should-i-do). Once you get to the build step (i.e. `nodejs build.js <whatever>`), instead of building one of the available options, copy the [default build meta file](https://github.com/AABoyles/LessWrong-Portable/blob/master/meta/default.json) to a version named for your own sequence/book.
 
 For example, I wanted to create a book using some LessWrong posts on meditation. Here's what I did:
 
@@ -151,6 +150,10 @@ If it's having trouble with a custom book you've cooked up, make sure that your 
 Anyway, that turned out to be a critical error. Munging Word documents is difficult because, frankly, Word encourages the user to adopt undesirable and inconsistent typesetting practices, making it arbitrarily difficult to scrape. I finally managed to scrape *Legal Systems*, but with a significant amount of hacking and non-generalizable code. Accordingly, I'm keeping the [meta file](https://github.com/AABoyles/LessWrong-Portable/blob/master/meta/legalsystems.json) and [output](https://github.com/AABoyles/LessWrong-Portable/blob/master/output), but ditching the code I had to use to build it. If you want to try to build it yourself, please be my guest, but I'm not helping ;)
 
 That said, if you figure out a not-crazy way that would generalize to other Word-based books, please (please please) submit a pull request!
+
+## Why are there some meta files for books that aren't in the output folder?
+
+This is left to the reader as an exercise in reading between the lines.
 
 ## What's the roadmap?
 
