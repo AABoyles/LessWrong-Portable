@@ -62,6 +62,10 @@ Finally, run `build.js`, along with the [name of the book you want to build](htt
 * `wbwelonmusk` - [Wait but Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) by Tim Urban
 * `replacingguilt` - [The Replacing Guilt Series](http://mindingourway.com/guilt/) by Nate Soares
 
+* `scip` - [The Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/full-text/book/)
+
+So, for example:
+
 ```bash
 nodejs build.js codex
 ```
