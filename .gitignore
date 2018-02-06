@@ -1,2 +1,3 @@
-cache/*
+cache/*.htm
+cache/*.html
 node_modules/
