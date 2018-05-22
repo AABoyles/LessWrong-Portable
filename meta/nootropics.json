@@ -1,0 +1,32 @@
+{
+	"img": "images/default.png",
+	"shorttitle": "Nootropics",
+	"metadata": {
+		"id": "Nootropics",
+		"title": "The Ultimate Guide to Nootropics",
+		"series": "Nootropics Depot Blog",
+		"sequence": 1,
+		"author": "Nootropics Depot",
+		"fileAs": "Biohacking",
+		"genre": "Non-Fiction",
+		"tags": "Biohacking",
+		"copyright": "Nootropics Depot, 2018",
+		"publisher": "Nootropics Depot",
+		"published": "2018",
+		"language": "en",
+		"description": "",
+		"contents": "Chapters",
+		"source": "http://nootropicsdepot.com/articles/",
+		"images": []
+	},
+	"titleSelector": "h1.PostTitle",
+	"contentSelector": "div.PostBody",
+	"urls": [
+		"a-beginners-guide-to-nootropics/",
+		"ultimate-guide-to-nootropics-part-1-an-introduction-to-a-new-class-of-compounds",
+		"ultimate-guide-to-nootropics-part-3-getting-to-know-medicinal-mushroom-extracts",
+		"ultimate-guide-to-nootropics-part-4-adaptogens",
+		"ultimate-guide-to-nootropics-part-5-fish-oil",
+		"ultimate-guide-to-nootropics-part-6-choline"
+	]
+}
