@@ -61,7 +61,7 @@ There are also meta files for some other content from outside the rationalist co
 
 * `hedonistic` - [The Hedonistic Imperative](https://www.hedweb.com/hedethic//tabconhi.htm) by David Pearce
 * `wbwelonmusk` - [Wait but Why on Elon Musk](https://waitbutwhy.com/2017/03/elon-musk-post-series.html) by Tim Urban
-* `scip` - [The Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/full-text/book/)
+* `scip` - [The Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/)
 
 So, for example:
 
