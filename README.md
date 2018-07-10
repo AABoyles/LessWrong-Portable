@@ -56,6 +56,7 @@ Finally, run `build.js`, along with the [name of the book you want to build](htt
 * `meditation` - [LessWrong on Meditation](http://lesswrong.com/) by LessWrong Authors
 * `intelligent` - [The Abridged Guide to Intelligent Characters](http://yudkowsky.tumblr.com/writing) by Eliezer Yudkowsky
 * `replacingguilt` - [The Replacing Guilt Series](http://mindingourway.com/guilt/) by Nate Soares
+* `parenting` - [Jeff Kaufman on Parenting](https://www.jefftk.com/p/index)
 
 There are also meta files for some other content from outside the rationalist community:
 

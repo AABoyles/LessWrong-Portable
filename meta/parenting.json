@@ -1,0 +1,40 @@
+{
+	"img": "images/lw.png",
+	"shorttitle": "Parenting",
+	"metadata": {
+		"id": "Parenting",
+		"title": "Jeff Kaufman on Parenting",
+		"series": "Parenting",
+		"sequence": 1,
+		"author": "Jeff Kaufman",
+		"fileAs": "kids",
+		"genre": "Non-Fiction",
+		"tags": "Rationality",
+		"copyright": "Jeff Kaufman, 2018",
+		"publisher": "jefftk.com",
+		"published": "2018",
+		"language": "en",
+		"description": "A collection of Jeff Kaufman's posts on Parenting. In a thematic order, rather than chronological.",
+		"contents": "Posts",
+		"source": "https://www.jefftk.com/p/",
+		"images": []
+	},
+	"titleSelector": "h3 > a",
+	"contentSelector": "div.pt",
+	"urls": [
+		"ok-to-have-kids",
+		"kids-and-global-warming",
+		"baby",
+		"parenting-and-emotional-changes",
+		"baby-sleep",
+		"baby-sleep-ii",
+		"lullabies",
+		"childcare",
+		"childcare-ii",
+		"predictable-parenting",
+		"how-to-parent-more-predictably",
+		"a-calming-strategy",
+		"reading-to-kids",
+		"street-training"
+	]
+}
