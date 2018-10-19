@@ -16,7 +16,7 @@
 		"language": "en",
 		"description": "Structure and Intrepretation of Computer Programs",
 		"contents": "Chapters",
-		"source": "https://mitpress.mit.edu/sicp/full-text/book/",
+		"source": "https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/",
 		"images": []
 	},
 	"titleSelector": "h1, h2",
