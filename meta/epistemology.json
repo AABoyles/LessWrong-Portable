@@ -1,0 +1,42 @@
+{
+	"img": "images/lw.png",
+	"shorttitle": "Epistemology",
+	"metadata": {
+		"id": "LessWrong",
+		"title": "Highly Advanced Epistemology for Beginners",
+		"series": "LessWrong",
+		"sequence": 1,
+		"author": "Eliezer Yudkowsky",
+		"fileAs": "LessWrong",
+		"genre": "Non-Fiction",
+		"tags": "Rationality",
+		"copyright": "LessWrong, 2019",
+		"publisher": "LessWrong",
+		"published": "2019",
+		"language": "en",
+		"description": "LessWrong 2.0 exists to give the rationality community the tools to make intellectual progress on important problems",
+		"contents": "Chapters",
+		"source": "https://www.lesserwrong.com/s/SqFbMbtxGybdS2gRs/p/",
+		"images": []
+	},
+	"titleSelector": ".PostsPageTitle-root",
+	"contentSelector": "div.PostsPage-postContent",
+	"urls": [
+		"XqvnWFtRD2keJdwjX",
+		"KJ9MFBPwXGwNpadf2",
+		"HcCpvYLoSFP4iAqSz",
+		"WbLAA8qZQNdbRgKte",
+		"h6fzC6wFYFxxKDm8u",
+		"hzuSDMx7pd2uxFc5w",
+		"NhQju3htS9W6p6wE6",
+		"PXoWk554FZ4Gpfvah",
+		"o5F2p3krzT4JgzqQc",
+		"Z2CuyKtkCmWGQtAEh",
+		"3FoMuCLqZggTxoC3S",
+		"i7oNcHR3ZSnEAM29X",
+		"GZjGtd35vhCnzSQKy",
+		"SWn4rqdycu83ikfBa",
+		"bTsiPnFndZeqTnWpu",
+		"zqwWicCLNBSA5Ssmn"
+	]
+}
