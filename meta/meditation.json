@@ -19,8 +19,8 @@
 		"source": "https://www.lesserwrong.com",
 		"images": []
 	},
-	"titleSelector": "div.posts-page-content-header-title",
-	"contentSelector": "div.posts-page-content-body-html",
+	"titleSelector": ".PostsPageTitle-root",
+	"contentSelector": ".PostsPage-postContent",
 	"urls": [
 		"/posts/Qk4h5cCcLmDXuuXYW/beginners-meditation",
 		"/posts/ekziTH4Jko7Q6v4tk/two-weeks-of-meditation-can-reduce-mind-wandering-and",

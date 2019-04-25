@@ -19,8 +19,8 @@
 		"source": "https://www.lesserwrong.com",
 		"images": []
 	},
-	"titleSelector": "div.posts-page-content-header-title",
-	"contentSelector": "div.posts-page-content-body-html",
+	"titleSelector": ".PostsPageTitle-root",
+	"contentSelector": "div.PostsPage-postContent",
 	"urls": [
 		"/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0"
 	]

@@ -18,8 +18,8 @@
 		"source": "https://perpetualcanon.blogspot.nl/",
 		"images": []
 	},
-	"titleSelector": "h3.post-title.entry-title",
-	"contentSelector": "div.post-body.entry-content",
+	"titleSelector": ".PostsPageTitle-root",
+	"contentSelector": ".PostsPage-postContent",
 	"urls": [
 		"p/rationality.html",
 		"2018/01/the-first-book-of-rationality.html",

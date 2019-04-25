@@ -96,8 +96,8 @@ The contents of the urls array in my meta config file isn't the full url, but th
 	"img": "images/lw.png",
 	"shorttitle": "LessWrongOnMeditation",
 	"metadata": {...},
-	"titleSelector": "div.posts-page-content-header-title",
-	"contentSelector": "div.posts-page-content-body-html",
+	"titleSelector": ".PostsPageTitle-root",
+	"contentSelector": ".PostsPage-postContent",
 	"urls": [
 		"/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3",
 		"/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3"

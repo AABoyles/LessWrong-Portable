@@ -21,6 +21,6 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "fs-jetpack": "^1.2.0",
-    "nodepub": "^2.0.7"
+    "nodepub": "^2.1.1"
   }
 }
