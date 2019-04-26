@@ -1,5 +1,5 @@
 {
-	"img": "images/lw.png",
+	"img": "images/RationalityAbridged.png",
 	"shorttitle": "RationalityAbridged",
 	"metadata": {
 		"id": "RationalityAbridged",
@@ -11,15 +11,15 @@
 		"tags": "Rationality",
 		"copyright": "Quaerendo, 2018",
 		"publisher": "LessWrong",
-		"published": "2018",
+		"published": "2018-01-05",
 		"language": "en",
 		"description": "",
 		"contents": "Chapters",
-		"source": "https://perpetualcanon.blogspot.nl/",
+		"source": "https://perpetualcanon.blogspot.com/",
 		"images": []
 	},
-	"titleSelector": ".PostsPageTitle-root",
-	"contentSelector": ".PostsPage-postContent",
+	"titleSelector": ".post-title",
+	"contentSelector": ".post-body",
 	"urls": [
 		"p/rationality.html",
 		"2018/01/the-first-book-of-rationality.html",
