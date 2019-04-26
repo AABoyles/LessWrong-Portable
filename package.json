@@ -4,9 +4,9 @@
   "description": "The latest in a long history of independent, disorganized projects to scrape collections of posts from LessWrong into ebooks",
   "main": "build.js",
   "scripts": {
+    "build": "npm start",
     "clean": "rf -r cache/*",
-    "start": "nodejs build.js",
-    "build": "nodejs build.js && nodejs build.js codex && nodejs build.js inadequate"
+    "start": "nodejs build.js"
   },
   "repository": {
     "type": "git",

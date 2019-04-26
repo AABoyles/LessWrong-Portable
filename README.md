@@ -22,11 +22,13 @@ This is started as the latest in a long history of independent, disorganized pro
 
 ...Not to mention the [official version of the Sequences](https://intelligence.org/rationality-ai-zombies/).
 
-So, why on earth did I start another? [LessWrong 2.0](http://lesserwrong.com/). If LessWrong 2.0 [is voted to replace LessWrong Classic](http://lesswrong.com/lw/pfl/lw_20_open_beta_live/) (see point 4), All the existing aggregators will break. This isn't a big deal, since they really only need to run once (correctly) in order to create the ebook, but anyone who wants to modify them and scrape new ebooks won't be able to use them.
+So, why on earth did I start another? [LessWrong 2.0](http://lesserwrong.com/). Since LessWrong 2.0 [was voted to replace LessWrong Classic](http://lesswrong.com/lw/pfl/lw_20_open_beta_live/) (see point 4), All other the existing aggregators have broken. This isn't a big deal, since they really only need to run once (correctly) in order to create the ebook, but anyone who wants to modify them and scrape new ebooks won't be able to use them.
 
-As separate rationale, [Scott Alexander's Codex](https://www.lesserwrong.com/codex) is open for reading now that the site is [in open beta](http://lesswrong.com/lw/pfl/lw_20_open_beta_live/). Not that all this content wasn't [available elsewhere](https://nothingismere.com/2015/09/12/library-of-scott-alexandria/) before, but this is the most intentional linearly-organized collection of his best writings I've seen. I want to read it, and as I read most things, I want to do it on my ebook reader.
+As separate rationale, [The Codex](https://www.lesserwrong.com/codex) by Scott Alexander is open for reading. Not that all this content wasn't [available elsewhere](https://nothingismere.com/2015/09/12/library-of-scott-alexandria/) before, but this is the most intentional linearly-organized collection of his best writings I've seen. I want to read it, and as I read most things, I want to do it on my ebook reader.
 
-However, I realized that (with a tiny bit of refactoring) this is flexible enough to work on content outside of LW2.
+## What about the non-LessWrong Content?
+
+Oh! I realized that with a surprisingly tiny bit of refactoring, this is flexible enough to work on content outside of LW. So I did the refactoring and here we are.
 
 ## Where are the Ebook files?
 
@@ -47,7 +49,7 @@ Now set up your environment:
 npm install
 ```
 
-Finally, run `build.js`, along with the [name of the book you want to build](https://github.com/AABoyles/LessWrong-Portable/tree/master/meta). Currently, the options include:
+Finally, run `npm start <book>`, along with the [name of the book you want to build](https://github.com/AABoyles/LessWrong-Portable/tree/master/meta). Currently, the options include:
 
 * `default` - A dummy package that demonstrates the JSON schema by creating an ebook containing only [this post](https://www.lesserwrong.com/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0).
 * `codex` - [The Codex of Scott Alexander](https://www.lesserwrong.com/codex)
@@ -67,16 +69,16 @@ There are also meta files for some other content from outside the rationalist co
 So, for example:
 
 ```bash
-nodejs build.js codex
+npm start codex
 ```
 
-That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/TheCodex.epub`). LW2 pageloads are pretty slow, but otherwise the script runs pretty fast :)
+That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/TheCodex.epub`).
 
 I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new).
 
 ## I want to make a custom book/sequence! How do I do that?
 
-First [follow the directions to build your own version](https://github.com/AABoyles/LessWrong-Portable#i-want-to-make-my-own-version-what-should-i-do). Once you get to the build step (i.e. `nodejs build.js <whatever>`), instead of building one of the available options, copy the [default build meta file](https://github.com/AABoyles/LessWrong-Portable/blob/master/meta/default.json) to a version named for your own sequence/book.
+First [follow the directions to build your own version](https://github.com/AABoyles/LessWrong-Portable#i-want-to-make-my-own-version-what-should-i-do). Once you get to the build step (i.e. `npm start <whatever>`), instead of building one of the available options, copy the [default build meta file](https://github.com/AABoyles/LessWrong-Portable/blob/master/meta/default.json) to a version named for your own sequence/book.
 
 For example, I wanted to create a book using some LessWrong posts on meditation. Here's what I did:
 
@@ -89,7 +91,7 @@ Next, edit `meta/meditation.json`. Changing this is mostly optional, except for 
 * [Meditation, insight, and rationality. (Part 1 of 3)](https://www.lesserwrong.com/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3)
 * [Meditation, insight, and rationality. (Part 2 of 3)](https://www.lesserwrong.com/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3)
 
-The contents of the urls array in my meta config file isn't the full url, but the path following "https://www.lesserwrong.com". So, my meta config file should look like this:
+The contents of the urls array in my meta config file isn't the full url, but the path following the `source`. So, my meta config file should look like this:
 
 ```json
 {
@@ -98,19 +100,20 @@ The contents of the urls array in my meta config file isn't the full url, but th
 	"metadata": {...},
 	"titleSelector": ".PostsPageTitle-root",
 	"contentSelector": ".PostsPage-postContent",
+	"source": "http://lesswrong.com/",
 	"urls": [
-		"/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3",
-		"/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3"
+		"posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3",
+		"posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3"
 	]
 }
 ```
 
-If you want to make a book from content outside of LW2, you're going to need to change a few more things. The fields in the `metadata` object should be more-or-less self-explanatory. `metadata.source` is used as the base URL for the contents of the `urls` array, so make sure that putting the two together generates a valid and correct URL. The `titleSelector` and `contentSelector` fields, probably less so. If you're not familiar with [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors), this is going to take a little bit of training. Feel free to email me for help.
+If you want to make a book from content outside of LW, you're going to need to change a few more things. The fields in the `metadata` object should be more-or-less self-explanatory. The `titleSelector` and `contentSelector` fields, probably less so. If you're not familiar with [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors), this is going to take a little bit of training. Feel free to email me for help.
 
 Now you can build your new book.
 
 ```bash
-nodejs build.js meditation
+npm start meditation
 ```
 
 That should generate a new file entitled `output/LessWrongOnMeditation.epub`. Enjoy!
@@ -120,11 +123,11 @@ That should generate a new file entitled `output/LessWrongOnMeditation.epub`. En
 ## How did you make the MOBI version?
 
 It turns out that programatically generating [Kindle Formats](https://kdp.amazon.com/en_US/help/topic/A2GF0UFHIYG9VQ) (e.g. [AZW](https://calibre-ebook.com/), [MOBI](https://en.wikipedia.org/wiki/Mobipocket)) is weirdly difficult.
-Use [Calibre](https://calibre-ebook.com/) or [this Weird Script from Amazon](https://www.amazon.com/gp/feature.html?docId=1000765211).
+Use [Calibre](https://calibre-ebook.com/) or [this Weird Script from Amazon](https://www.amazon.com/gp/feature.html?docId=1000765211). I may get around to [scripting it](https://github.com/AABoyles/LessWrong-Portable/issues/12), someday.
 
 ## How do you make a PDF/Text/Markdown/[Whatever] Version?
 
-I haven't gotten there yet. Feel free to [fork this repo](https://help.github.com/articles/fork-a-repo/) and figure it out yourself.
+I'm probably not going to. Feel free to [fork this repo](https://help.github.com/articles/fork-a-repo/) and figure it out yourself.
 
 ## How do you make a Word Version?
 
@@ -132,7 +135,7 @@ Go away.
 
 ## Why does the script call `wget`, instead of using an [http library](https://www.npmjs.com/search?q=curl&page=1&ranking=optimal)?
 
-I went through four different libraries to try to make synchronous http requests, and they all did this super annoying thing where they would return a page that hadn't rendered the text content yet. Weirdly, when I made (what I thought was) the same request in `curl`, it gave me the content I needed. So, instead of figuring out the right way to do it, I just did the thing that worked. I switched to `wget` when I needed to run a build on a Windows machine and `wget` was easier to get running. This confers the added bonus in that Ubuntu has `wget` out of the box but `curl` must be installed.
+I went through four different libraries to try to make synchronous http requests, and they all did this super annoying thing where they would return a page that hadn't rendered the text content yet (No, it wasn't a promise. Cut me *some* slack, please). Weirdly, when I made (what I thought was) the same request in `curl`, it gave me the content I needed. So, instead of figuring out the right way to do it, I just did the thing that worked. I switched to `wget` when I needed to run a build on a Windows machine and `wget` was easier to get running. This confers the added bonus in that Ubuntu has `wget` out of the box but `curl` must be installed.
 
 ## Why synchronous requests?
 
