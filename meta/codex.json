@@ -16,7 +16,7 @@
 		"language": "en",
 		"description": "",
 		"contents": "Chapters",
-		"source": "https://www.lesserwrong.com",
+		"source": "https://www.lesswrong.com",
 		"images": []
 	},
 	"titleSelector": ".PostsPageTitle-root",

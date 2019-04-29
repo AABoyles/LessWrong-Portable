@@ -4,7 +4,7 @@ Download the current versions of:
 
 | Title | Author | EPUB | MOBI |
 | ----- | ------ | ---- | ---- |
-| [The Codex](https://www.lesserwrong.com/codex) | Scott Alexander | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi) |
+| [The Codex](https://www.lesswrong.com/codex) | Scott Alexander | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/TheCodex.mobi) |
 | [Rationality Abridged](https://perpetualcanon.blogspot.nl/p/rationality.html) | Quaerendo | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/RationalityAbridged.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/RationalityAbridged.mobi) |
 | [The Abridged Guide to Intelligent Characters](http://yudkowsky.tumblr.com/writing) | Eliezer Yudkowsky | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/IntelligentCharacters.mobi) |
 | [Replacing Guilt](http://mindingourway.com/guilt/) | Nate Soares | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/ReplacingGuilt.epub) | [:book:](https://github.com/AABoyles/LessWrong-Portable/raw/master/output/ReplacingGuilt.mobi) |
@@ -21,9 +21,9 @@ This is started as the latest in a long history of independent, disorganized pro
 
 ...Not to mention the [official version of the Sequences](https://intelligence.org/rationality-ai-zombies/).
 
-So, why on earth did I start another? [LessWrong 2.0](http://lesserwrong.com/). Since LessWrong 2.0 [was voted to replace LessWrong Classic](http://lesswrong.com/lw/pfl/lw_20_open_beta_live/) (see point 4), All other the existing aggregators have broken. This isn't a big deal, since they really only need to run once (correctly) in order to create the ebook, but anyone who wants to modify them and scrape new ebooks won't be able to use them.
+So, why on earth did I start another? [LessWrong 2.0](http://lesswrong.com/). Since LessWrong 2.0 [was voted to replace LessWrong Classic](http://lesswrong.com/lw/pfl/lw_20_open_beta_live/) (see point 4), All other the existing aggregators have broken. This isn't a big deal, since they really only need to run once (correctly) in order to create the ebook, but anyone who wants to modify them and scrape new ebooks won't be able to use them.
 
-As separate rationale, [The Codex](https://www.lesserwrong.com/codex) by Scott Alexander is open for reading. Not that all this content wasn't [available elsewhere](https://nothingismere.com/2015/09/12/library-of-scott-alexandria/) before, but this is the most intentional linearly-organized collection of his best writings I've seen. I want to read it, and as I read most things, I want to do it on my ebook reader.
+As separate rationale, [The Codex](https://www.lesswrong.com/codex) by Scott Alexander is open for reading. Not that all this content wasn't [available elsewhere](https://nothingismere.com/2015/09/12/library-of-scott-alexandria/) before, but this is the most intentional linearly-organized collection of his best writings I've seen. I want to read it, and as I read most things, I want to do it on my ebook reader.
 
 ## What about the non-LessWrong Content?
 
@@ -50,8 +50,8 @@ npm install
 
 Finally, run `npm start <book>`, along with the [name of the book you want to build](https://github.com/AABoyles/LessWrong-Portable/tree/master/meta). Currently, the options include:
 
-* `default` - A dummy package that demonstrates the JSON schema by creating an ebook containing only [this post](https://www.lesserwrong.com/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0).
-* `codex` - [The Codex of Scott Alexander](https://www.lesserwrong.com/codex)
+* `default` - A dummy package that demonstrates the JSON schema by creating an ebook containing only [this post](https://www.lesswrong.com/posts/ANDbEKqbdDuBCQAnM/about-lesswrong-2-0).
+* `codex` - [The Codex of Scott Alexander](https://www.lesswrong.com/codex)
 * `rationalityabridged` - [Rationality Abridged](https://perpetualcanon.blogspot.nl/p/rationality.html) by Quaerendo
 * `inadequate` - [Inadequate Equilibria](https://equilibriabook.com/) by Eliezer Yudkowsky
 * `meditation` - [LessWrong on Meditation](http://lesswrong.com/) by LessWrong Authors
@@ -71,7 +71,7 @@ So, for example:
 npm start codex
 ```
 
-That will download all of the content of [the Codex](https://www.lesserwrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/TheCodex.epub`).
+That will download all of the content of [the Codex](https://www.lesswrong.com/codex) into the `cache/` directory, and then assemble them all into an EPUB file (`outputs/TheCodex.epub`).
 
 I'm sure I'm forgetting stuff. [Let me know](https://github.com/AABoyles/LessWrong-Portable/issues/new).
 
@@ -87,8 +87,8 @@ cp meta/default.json meta/meditation.json
 
 Next, edit `meta/meditation.json`. Changing this is mostly optional, except for the URLs. That's really, really important. I used these posts as a starting point:
 
-* [Meditation, insight, and rationality. (Part 1 of 3)](https://www.lesserwrong.com/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3)
-* [Meditation, insight, and rationality. (Part 2 of 3)](https://www.lesserwrong.com/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3)
+* [Meditation, insight, and rationality. (Part 1 of 3)](https://www.lesswrong.com/posts/QqSNFcGSZdnARx56E/meditation-insight-and-rationality-part-1-of-3)
+* [Meditation, insight, and rationality. (Part 2 of 3)](https://www.lesswrong.com/posts/QjoTFHzvrxQg9A6j3/meditation-insight-and-rationality-part-2-of-3)
 
 The contents of the urls array in my meta config file isn't the full url, but the path following the `source`. So, my meta config file should look like this:
 

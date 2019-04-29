@@ -16,7 +16,7 @@
 		"language": "en",
 		"description": "LessWrong content regarding Meditation",
 		"contents": "Chapters",
-		"source": "https://www.lesserwrong.com",
+		"source": "https://www.lesswrong.com",
 		"images": []
 	},
 	"titleSelector": ".PostsPageTitle-root",

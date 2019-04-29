@@ -3,7 +3,7 @@
 	"shorttitle": "Epistemology",
 	"metadata": {
 		"id": "LessWrong",
-		"title": "Highly Advanced Epistemology for Beginners",
+		"title": "Highly Advanced Epistemology 101 for Beginners",
 		"series": "LessWrong",
 		"sequence": 1,
 		"author": "Eliezer Yudkowsky",
@@ -16,7 +16,7 @@
 		"language": "en",
 		"description": "LessWrong 2.0 exists to give the rationality community the tools to make intellectual progress on important problems",
 		"contents": "Chapters",
-		"source": "https://www.lesserwrong.com/s/SqFbMbtxGybdS2gRs/p/",
+		"source": "https://www.lesswrong.com/s/SqFbMbtxGybdS2gRs/p/",
 		"images": []
 	},
 	"titleSelector": ".PostsPageTitle-root",
