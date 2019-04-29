@@ -1,23 +1,39 @@
 #!/usr/bin/env nodejs
 
 const cheerio = require('cheerio');
-const makepub = require('nodepub');
+const Streampub = require('streampub');
 const jetpack = require('fs-jetpack');
 const { execSync } = require('child_process');
 
 var version = process.argv.length > 2 ? process.argv[2] : 'default';
 
 const config = JSON.parse(jetpack.read('meta/' + version + '.json'));
+config.metadata = Object.assign({
+    title: version,
+    author: 'LessWrong',
+    authorUrl: 'https://www.lesswrong.com/',
+    modified: new Date(),
+    source: 'https://www.lesswrong.com/',
+    description: 'LessWrong 2.0 exists to give the rationality community the tools to make intellectual progress on important problems.',
+    publisher: 'LessWrong',
+    subject: 'Non-fiction, Rationality',
+    includeTOC: false
+  }, config.metadata);
 
 var scrapeError = false;
 
-var epub = makepub.document(config.metadata, config.img);
+var epub = new Streampub(config.metadata);
+epub.pipe(jetpack.createWriteStream(`output/${version}.epub`));
 
-epub.addCSS(jetpack.read('style/base.css'));
+let cover = cheerio.load(jetpack.read('templates/cover.xhtml'));
+cover('h1#title').text(config.metadata.title);
+cover('figure#cover').append(`<img alt="Cover" src="${config.img}" />`);
+cover('span#author').text(config.metadata.author);
+epub.write(Streampub.newChapter(config.metadata.title, cover.html(), 0));
 
-epub.addSection('Title Page', "<h1>[[TITLE]]</h1><h3>by [[AUTHOR]]</h3>", true, true);
+let toc = cheerio.load(jetpack.read('templates/nav.xhtml'));
 
-var base_content = jetpack.read('template.xhtml');
+var chapterNumber = 2;
 
 function addChapterToBook(html, url, cache_path){
   let $ = cheerio.load(html);
@@ -36,10 +52,12 @@ function addChapterToBook(html, url, cache_path){
     scrapeError = true;
   }
   let safe_title = title.toLowerCase().replace(/ /g, '-');
-  let newDoc = cheerio.load(base_content);
-  newDoc('body').append('<div id="'+safe_title+'"></div>');
-  newDoc('div').append('<h1>'+title+'</h1>').append(content);
-  epub.addSection(title, newDoc('body').html());
+  let newDoc = cheerio.load(jetpack.read('templates/chapter.xhtml'));
+  newDoc('#chapter')
+    .append('<h1>'+title+'</h1>')
+    .append(content);
+  epub.write(Streampub.newChapter(title, newDoc('body').html(), chapterNumber));
+  toc('#list').append(`<li><a href="chapter-${chapterNumber++}.xhtml">${title}</a></li>`);
 }
 
 config.urls.forEach(url => {
@@ -57,10 +75,15 @@ config.urls.forEach(url => {
   addChapterToBook(jetpack.read(cache_path), url, cache_path);
 });
 
+epub.write(Streampub.newChapter("Table of Contents", toc.html(), 1));
+
+epub.write(Streampub.newFile('style/blitz.css', jetpack.createReadStream('style/blitz.css')));
+epub.write(Streampub.newFile('style/blitz-kindle.css', jetpack.createReadStream('style/blitz-kindle.css')));
+epub.write(Streampub.newFile(config.img, jetpack.createReadStream(config.img)));
+
 if(scrapeError){
-  console.log('Scrape errors occurred: No book produced.');
+  console.error('Scrape errors occurred: No epub produced.');
 } else {
-  epub.writeEPUB(console.error, 'output', config.shorttitle, ()=>{
-    console.log('Book successfully written to output/' + config.shorttitle + '.epub');
-  });
+  epub.end();
+  console.log('Book successfully written to output/' + config.shorttitle + '.epub');
 }

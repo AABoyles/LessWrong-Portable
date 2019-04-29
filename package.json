@@ -1,6 +1,6 @@
 {
   "name": "lesswrong-portable",
-  "version": "0.1.1",
+  "version": "0.2.0a",
   "description": "The latest in a long history of independent, disorganized projects to scrape collections of posts from LessWrong into ebooks",
   "main": "build.js",
   "scripts": {
@@ -21,6 +21,6 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "fs-jetpack": "^1.2.0",
-    "nodepub": "^2.1.1"
+    "streampub": "^1.9.0"
   }
 }
