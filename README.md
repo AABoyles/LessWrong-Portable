@@ -34,10 +34,10 @@ In the [output directory](https://github.com/AABoyles/LessWrong-Portable/tree/ma
 
 ## I want to make my own version! What should I do?
 
-First, [Clone this Repository](https://github.com/AABoyles/LessWrong-Portable.git)
+First, [Clone this Repository](https://github.com/LessWrong2/LessWrong-Portable)
 
 ```bash
-git clone https://github.com/AABoyles/LessWrong-Portable.git
+git clone https://github.com/LessWrong2/LessWrong-Portable
 cd LessWrong-Portable/
 ```
 
