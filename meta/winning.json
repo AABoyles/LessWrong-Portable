@@ -1,0 +1,25 @@
+{
+    "img": "image/upload/c_fill,dpr_2.0,g_custom,h_380,q_auto,w_1699/v1/sequences/l6y9o00lif4qenrdel5w",
+	"shorttitle": "WinningAtLife",
+	"metadata": {
+		"id": "WinningAtLife",
+		"title": "The Science of Winning at Life",
+		"series": "LessWrong",
+		"sequence": 1,
+		"author": "lukeprog",
+		"fileAs": "lukeprog",
+		"genre": "Non-Fiction",
+		"tags": "Rationality",
+		"copyright": "lukeprog, 2017",
+		"publisher": "LessWrong",
+		"published": "2017",
+		"language": "en",
+		"description": "",
+		"contents": "Chapters",
+		"source": "https://www.lesserwrong.com",
+		"images": []
+	},
+	"titleSelector": "h1.PostsPageTitle-root",
+	"contentSelector": "div.PostsPage-postContent",
+	"sequenceId": "oi873FWi6pHWxswSa"
+}
