@@ -23,7 +23,8 @@ config.metadata = Object.assign({
 var scrapeError = false;
 
 var epub = new Streampub(config.metadata);
-epub.pipe(jetpack.createWriteStream(`output/${version}.epub`));
+var epubPath = `output/${version}.epub`
+epub.pipe(jetpack.createWriteStream(epubPath));
 
 let cover = cheerio.load(jetpack.read('templates/cover.xhtml'));
 cover('h1#title').text(config.metadata.title);
@@ -85,5 +86,5 @@ if(scrapeError){
   console.error('Scrape errors occurred: No epub produced.');
 } else {
   epub.end();
-  console.log('Book successfully written to output/' + config.shorttitle + '.epub');
+  console.log(`Book successfully written to ${epubPath}`);
 }
