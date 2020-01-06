@@ -1,0 +1,37 @@
+{
+	"img": "images/lw.png",
+	"shorttitle": "MultiAgentModels",
+	"metadata": {
+		"id": "MultiAgentModels",
+		"title": "Multiagent Models of Mind",
+		"series": "Multiagent Models of Mind",
+		"sequence": 1,
+		"author": " Kaj Sotala",
+		"fileAs": "LessWrong",
+		"genre": "Non-Fiction",
+		"tags": "Rationality",
+		"copyright": "Kaj Sotala, 2019",
+		"publisher": "Kaj Sotala",
+		"published": "2019",
+		"language": "en",
+		"description": "",
+		"contents": "Chapters",
+		"source": "https://www.lesswrong.com",
+		"images": []
+	},
+	"titleSelector": ".PostsPageTitle-root",
+	"contentSelector": "div.PostsPage-postContent",
+	"urls": [
+		"/posts/M4w2rdYgCKctbADMn",
+		"/posts/x4n4jcoDP7xh5LWLq",
+		"/posts/5gfqG3Xcopscta3st",
+		"/posts/AhcEaqWYpa2NieNsK",
+		"/posts/oJwJzeZ6ar2Hr7KAX",
+		"/posts/hnLutdvjC8kPScPAj",
+		"/posts/7zQPYQB5EeaqLrhBh",
+		"/posts/u5RLu5F3zKTB3Qjnu",
+		"/posts/HbXXd2givHBBLxr3d",
+		"/posts/i9xyZBS3qzA8nFXNQ",
+		"/posts/WYmmC3W6ZNhEgAmWG"
+	]
+}
