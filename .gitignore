@@ -1,3 +1,4 @@
 cache/*.htm
 cache/*.html
 node_modules/
+temp/*

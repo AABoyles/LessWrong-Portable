@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm start",
     "clean": "rf -r cache/*",
-    "start": "nodejs build.js"
+    "start": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,9 @@
   },
   "homepage": "https://github.com/AABoyles/LessWrong-Portable#readme",
   "dependencies": {
+    "archiver": "^5.0.2",
     "cheerio": "^1.0.0-rc.3",
     "fs-jetpack": "^1.2.0",
-    "streampub": "^1.9.0"
+    "nodepub": "^2.2.0"
   }
 }
