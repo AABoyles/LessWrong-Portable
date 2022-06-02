@@ -78,7 +78,7 @@ config.urls.forEach(url => {
   cache_path = './cache/' + stem + (stem.split('.').pop() !== 'html' ? '.html' : '');
   if(!jetpack.exists(cache_path)){
     console.log('Scraping', config.metadata.source + path);
-    execSync('wget ' + config.metadata.source + path + ' -nc -q -O ' + cache_path);
+    execSync('wget --user-agent="Mozilla" ' + config.metadata.source + path + ' -nc -q -O ' + cache_path);
   }
   addChapterToBook(jetpack.read(cache_path), url, cache_path);
 });
