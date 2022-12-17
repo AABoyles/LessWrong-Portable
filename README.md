@@ -107,6 +107,15 @@ The contents of the urls array in my meta config file isn't the full url, but th
 }
 ```
 
+To scrape a LessWrong [collection](https://www.lesswrong.com/library), use:
+
+```sh
+# example uri: https://www.lesswrong.com/rationality
+npm run scrape_collection <uri>
+```
+
+You can then plug the `urls` the script outputs into the config file as above.
+
 If you want to make a book from content outside of LW, you're going to need to change a few more things. The fields in the `metadata` object should be more-or-less self-explanatory. The `titleSelector` and `contentSelector` fields, probably less so. If you're not familiar with [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors), this is going to take a little bit of training. Feel free to email me for help.
 
 Now you can build your new book.
