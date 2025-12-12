@@ -1,0 +1,34 @@
+{
+	"img": "images/lw.png",
+	"shorttitle": "Naturalism",
+	"metadata": {
+		"id": "Naturalism",
+		"title": "Intro to Naturalism",
+		"series": "Naturalism",
+		"sequence": 1,
+		"author": "Logan Strohl",
+		"fileAs": "Naturalism",
+		"genre": "Non-Fiction",
+		"tags": "Rationality",
+		"copyright": "LessWrong, 2022",
+		"publisher": "LessWrong",
+		"published": "2022",
+		"language": "en",
+		"description": "Logan Strohl's Naturalism sequence",
+		"contents": "Chapters",
+		"source": "https://www.lesswrong.com/s/evLkoqsbi79AnM5sz/p/",
+		"images": []
+	},
+	"titleSelector": ".PostsPageTitle-root",
+	"contentSelector": "div.PostsPage-postContent",
+	"urls": [
+		"pPWiLGsWCtN92vLwu",
+		"S8kAJamj66gekjBwC",
+		"bRcsFM6jm272ELyx8",
+		"wY7vKT2PiNyG8w2Ep",
+		"6EyrTDGgfsk8TCbMf",
+		"y7wgtZ2ehfWuqzXfm",
+		"sAiHxHkQrsYsRpKFP",
+		"x9DEmdQa5brftFfpX"
+	]
+}
