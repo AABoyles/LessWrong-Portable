@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npm start",
     "clean": "rf -r cache/*",
-    "start": "node build.js"
+    "start": "node build.js",
+    "scrape_collection": "node scrape_collection.js"
   },
   "repository": {
     "type": "git",
