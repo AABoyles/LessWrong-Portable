@@ -30,9 +30,6 @@ function addChapterToBook(html, url, cache_path){
   let title = $(config.titleSelector).first().text();
   console.log('Adding "' + title + '" to the book.')
   if(config.withoutSelector) $(config.withoutSelector).remove();
-  $('br').replaceWith('\n');
-  $('img').insertAfter('</img>');
-  $('hr').insertAfter('</hr>');
   $('[async]').removeAttr('async');
   // epub:type uses the epub: namespace prefix, which is not declared in the XHTML
   // wrapper nodepub generates, causing XML parsers to reject the file.
@@ -49,11 +46,20 @@ function addChapterToBook(html, url, cache_path){
     jetpack.remove(cache_path);
     scrapeError = true;
   }
-  let safe_title = title.toLowerCase().replace(/ /g, '-');
+  // Serialize and make void elements XHTML self-closing so the EPUB passes
+  // XML validation. cheerio HTML mode strips closing slashes on serialisation,
+  // so we apply the fixes as string replacements after extraction.
+  let contentHtml = (typeof content === 'string' ? content : content.html()) || '';
+  ['br', 'hr', 'img', 'input', 'col', 'area', 'embed', 'source', 'wbr'].forEach(tag => {
+    contentHtml = contentHtml.replace(
+      new RegExp(`<${tag}([^>]*?)\\s*/?>`, 'gi'),
+      (_, attrs) => `<${tag}${attrs.trimEnd()}/>`
+    );
+  });
   let newDoc = `
     <h1 style="margin: 1rem auto;">${title}</h1>
     <div style="">
-      ${content.html()}
+      ${contentHtml}
     </div>
 `;
   epub.addSection(title, newDoc);
