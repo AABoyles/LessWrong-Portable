@@ -6,8 +6,8 @@ const jetpack = require('fs-jetpack');
 const { execSync } = require('child_process');
 const archiver = require('archiver');
 
-let version = process.argv.length > 2 ? process.argv[2] : 'default';
 const buildMobi = process.argv.includes('--mobi');
+const version = process.argv.slice(2).find(a => !a.startsWith('--')) || 'default';
 
 const config = JSON.parse(jetpack.read('meta/' + version + '.json'));
 config.metadata = Object.assign({
@@ -38,7 +38,8 @@ function addChapterToBook(html, url, cache_path){
     : config.withoutSelector;
 
   let $ = cheerio.load(html);
-  let title = urlObj.title || $(titleSelector).first().text();
+  const scrapedTitle = $(titleSelector).first().text();
+  let title = urlObj.title || scrapedTitle;
   console.log('Adding "' + title + '" to the book.');
   if(withoutSelector) $(withoutSelector).remove();
   $('[async]').removeAttr('async');
@@ -46,7 +47,9 @@ function addChapterToBook(html, url, cache_path){
   // wrapper nodepub generates, causing XML parsers to reject the file.
   $('*').each((_, el) => { if (el.attribs) delete el.attribs['epub:type']; });
   let content = $(contentSelector);
-  if(title === ''){
+  // Check the selector-extracted title (not any user-supplied override) so that
+  // a hardcoded title doesn't mask a page that failed to scrape correctly.
+  if(scrapedTitle === ''){
     console.log('Couldn\'t correctly scrape', urlPath);
     jetpack.remove(cache_path);
     scrapeError = true;
@@ -88,8 +91,9 @@ config.urls.forEach(url => {
   let stem = urlPath.trim().split('/').pop();
   const cache_path = './cache/' + stem + (stem.split('.').pop() !== 'html' ? '.html' : '');
   if(!jetpack.exists(cache_path)){
-    console.log('Scraping', source + urlPath);
-    execSync('wget --user-agent="Mozilla" ' + source + urlPath + ' -nc -q -O ' + cache_path);
+    const fetchUrl = new URL(urlPath, source).toString();
+    console.log('Scraping', fetchUrl);
+    execSync('wget --user-agent="Mozilla" ' + fetchUrl + ' -nc -q -O ' + cache_path);
   }
   addChapterToBook(jetpack.read(cache_path), url, cache_path);
 });
