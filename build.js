@@ -7,6 +7,7 @@ const { execSync } = require('child_process');
 const archiver = require('archiver');
 
 let version = process.argv.length > 2 ? process.argv[2] : 'default';
+const buildMobi = process.argv.includes('--mobi');
 
 const config = JSON.parse(jetpack.read('meta/' + version + '.json'));
 config.metadata = Object.assign({
@@ -97,5 +98,17 @@ const output = jetpack.createWriteStream(`${__dirname}/output/${version}.epub`);
 archive.pipe(output);
 epub.writeFilesForEPUB('./temp', err => { if (err) { console.log(err) } });
 archive.directory('./temp/', false);
-output.on('close', () => console.log(archive.pointer() + ' total bytes'));
+output.on('close', () => {
+  console.log(archive.pointer() + ' total bytes');
+  if (buildMobi) {
+    const epubPath = `${__dirname}/output/${version}.epub`;
+    const mobiPath = `${__dirname}/output/${version}.mobi`;
+    try {
+      execSync(`ebook-convert "${epubPath}" "${mobiPath}"`, { stdio: 'inherit' });
+      console.log('MOBI written to', mobiPath);
+    } catch (_) {
+      console.error('MOBI conversion failed. Install Calibre and ensure ebook-convert is on your PATH.');
+    }
+  }
+});
 archive.finalize();
