@@ -27,23 +27,27 @@ let scrapeError = false;
 let epub = nodepub.document(config.metadata, config.img, writeTOC);
 
 function addChapterToBook(html, url, cache_path){
+  const urlObj = typeof url === 'object' ? url : {};
+  const urlPath = urlObj.url || url;
+
+  // Per-URL overrides fall back to top-level config values.
+  const titleSelector  = urlObj.titleSelector  || config.titleSelector;
+  const contentSelector = urlObj.contentSelector || config.contentSelector;
+  const withoutSelector = urlObj.withoutSelector !== undefined
+    ? urlObj.withoutSelector
+    : config.withoutSelector;
+
   let $ = cheerio.load(html);
-  let title = $(config.titleSelector).first().text();
-  console.log('Adding "' + title + '" to the book.')
-  if(config.withoutSelector) $(config.withoutSelector).remove();
+  let title = urlObj.title || $(titleSelector).first().text();
+  console.log('Adding "' + title + '" to the book.');
+  if(withoutSelector) $(withoutSelector).remove();
   $('[async]').removeAttr('async');
   // epub:type uses the epub: namespace prefix, which is not declared in the XHTML
   // wrapper nodepub generates, causing XML parsers to reject the file.
   $('*').each((_, el) => { if (el.attribs) delete el.attribs['epub:type']; });
-  let content = $(config.contentSelector);
-  let path = url;
-  if(typeof url === 'object'){
-    path = url.url;
-    if(url.titleSelector) title = $(url.titleSelector).text();
-    if(url.contentSelector) content = $(url.contentSelector).text();
-  }
+  let content = $(contentSelector);
   if(title === ''){
-    console.log('Couldn\'t correctly scrape', path);
+    console.log('Couldn\'t correctly scrape', urlPath);
     jetpack.remove(cache_path);
     scrapeError = true;
   }
@@ -79,16 +83,13 @@ function writeTOC(links){
 }
 
 config.urls.forEach(url => {
-  if(typeof url === 'string'){
-    path = url;
-  } else {
-    path = url.url;
-  }
-  let stem = path.trim().split('/').pop();
-  cache_path = './cache/' + stem + (stem.split('.').pop() !== 'html' ? '.html' : '');
+  const urlPath = typeof url === 'string' ? url : url.url;
+  const source  = (typeof url === 'object' && url.source) ? url.source : config.metadata.source;
+  let stem = urlPath.trim().split('/').pop();
+  const cache_path = './cache/' + stem + (stem.split('.').pop() !== 'html' ? '.html' : '');
   if(!jetpack.exists(cache_path)){
-    console.log('Scraping', config.metadata.source + path);
-    execSync('wget --user-agent="Mozilla" ' + config.metadata.source + path + ' -nc -q -O ' + cache_path);
+    console.log('Scraping', source + urlPath);
+    execSync('wget --user-agent="Mozilla" ' + source + urlPath + ' -nc -q -O ' + cache_path);
   }
   addChapterToBook(jetpack.read(cache_path), url, cache_path);
 });
