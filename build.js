@@ -33,7 +33,10 @@ function addChapterToBook(html, url, cache_path){
   $('br').replaceWith('\n');
   $('img').insertAfter('</img>');
   $('hr').insertAfter('</hr>');
-  $('[async]').removeAttr('async')
+  $('[async]').removeAttr('async');
+  // epub:type uses the epub: namespace prefix, which is not declared in the XHTML
+  // wrapper nodepub generates, causing XML parsers to reject the file.
+  $('*').each((_, el) => { if (el.attribs) delete el.attribs['epub:type']; });
   let content = $(config.contentSelector);
   let path = url;
   if(typeof url === 'object'){
